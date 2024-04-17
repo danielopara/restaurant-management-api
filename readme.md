@@ -94,6 +94,14 @@ Retrieves a food item by name.
 - **Path Parameter**: `foodName` - The name of the food item.
 - **Response**: `200 OK` with a `FoodItemDto` object if found.
 
+#### PUT api/v1/food/update-food/{id}
+
+Retrieves the food's ID and a request body of what should the food be updated to.
+
+- **Path Parameter**: `id` - The id of the food item.
+- **Request Body**: `FoodItemDto`
+- **Response** : `200 OK` saying "Updated food details" with `FoodItemDto` if successful.
+
 ### Order Management
 
 #### POST /api/v1/order
@@ -117,7 +125,7 @@ Creates a new order.
 
 #### Example Request to Add a Food Item
 
-```json
+```http
 POST /api/v1/food/add-food
 Content-Type: application/json
 
@@ -129,7 +137,7 @@ Content-Type: application/json
 
 #### Example Response
 
-```json
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 

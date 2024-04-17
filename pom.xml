@@ -55,6 +55,12 @@
 			<artifactId>logback-classic</artifactId>
 <!--			<version>${logback.version}</version>-->
 		</dependency>
+		<dependency>
+			<groupId>to.etc.domui</groupId>
+			<artifactId>to.etc.jsr305</artifactId>
+			<version>1.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

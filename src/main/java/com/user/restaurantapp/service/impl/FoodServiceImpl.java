@@ -9,6 +9,8 @@ import io.micrometer.common.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -68,7 +70,7 @@ public class FoodServiceImpl implements FoodService {
     }
 
     @Override
-    public List<FoodItemDto> getFoodItems(String sortBy, SortOrder sortOrder) {
+    public List<FoodItemDto> getFoodItems( int pageNumber, int pageSize,String sortBy, SortOrder sortOrder) {
         Sort sort;
 
         switch (sortOrder) {
@@ -81,12 +83,44 @@ public class FoodServiceImpl implements FoodService {
             default:
                 sort = Sort.by(sortBy);
         }
-        List<FoodItem> allFoodItems = foodRepository.findAll(sort);
+        PageRequest page = PageRequest.of(pageNumber, pageSize, sort);
+        Page<FoodItem> allFoodItems = foodRepository.findAll(page);
         List<FoodItemDto> foodItemDtos = new ArrayList<>();
         for (FoodItem foodItem : allFoodItems){
                 foodItemDtos.add(mapToFoodItemDto(foodItem));
         }
         return foodItemDtos;
+    }
+
+    @Override
+    public AddFoodDto updateFoodItem(Long id, FoodItemDto item) {
+        AddFoodDto responseDto = new AddFoodDto();
+
+        Optional<FoodItem> foodId = foodRepository.findById(id);
+
+        if(foodId.isPresent()){
+            FoodItem food = foodId.get();
+            if(StringUtils.isBlank(item.getFoodName())){
+                food.setFoodName(food.getFoodName());
+            }
+            if(item.getFoodPrice().compareTo(BigDecimal.ZERO) <= 0) {
+                food.setFoodPrice(food.getFoodPrice());
+            }
+
+            food.setFoodName(item.getFoodName());
+            food.setFoodPrice(item.getFoodPrice());
+
+            responseDto.setMessage("Food details has updated");
+            responseDto.setItem(item);
+            foodRepository.save(food);
+        } else {
+            responseDto.setMessage("Food not found else food details did not update");
+            responseDto.setItem(null);
+        }
+
+
+        return responseDto;
+
     }
 
     @Override

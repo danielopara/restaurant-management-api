@@ -11,6 +11,7 @@ import java.util.List;
 public interface FoodService {
 //    FoodItem
     AddFoodDto addFoodItem(FoodItemDto item);
-    List<FoodItemDto> getFoodItems(String sortBy, SortOrder sortOrder);
+    List<FoodItemDto> getFoodItems( int pageNumber, int pageSize, String sortBy, SortOrder sortOrder);
+    AddFoodDto updateFoodItem(Long id, FoodItemDto item);
     List<FoodItemDto> getFoodByName(String foodName);
 }

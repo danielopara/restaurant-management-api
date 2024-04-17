@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Nonnegative;
 import javax.swing.*;
 import java.util.List;
 
@@ -48,13 +49,30 @@ public class FoodController {
                             examples = @ExampleObject(value = "[{\"foodName\":\"Pizza\",\"foodPrice\":10.99},{\"foodName\":\"Burger\",\"foodPrice\":7.99}]"))),
             @ApiResponse(responseCode = "400", description = "Failed getting food list")
     })
-    ResponseEntity<?> getFood(@RequestParam(defaultValue = "id") String sortBy,
+    ResponseEntity<?> getFood(@RequestParam(defaultValue = "0") @Nonnegative Integer pageNumber,
+                              @RequestParam(defaultValue = "10") @Nonnegative Integer pageSize,
+                              @RequestParam(defaultValue = "id") String sortBy,
                               @RequestParam(defaultValue = "ASCENDING") SortOrder sortOrder){
-        List<FoodItemDto> foodItems = foodService.getFoodItems(sortBy, sortOrder);
+        List<FoodItemDto> foodItems = foodService.getFoodItems(pageNumber, pageSize, sortBy, sortOrder);
         if(foodItems != null){
             return new ResponseEntity<>(foodItems, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(new ErrorResponse("Failed getting food list"), HttpStatus.BAD_REQUEST);
+        }
+    }
+    @PutMapping("/update-food/{id}")
+    @Operation(method = "PUT", summary = "Update food details", responses = {
+            @ApiResponse(responseCode = "200", description = "Updating food details of a particular item",
+            content = @Content(schema = @Schema(implementation = FoodItemDto.class),
+                    examples = @ExampleObject(value = "[{\"foodName\":\"Pizza\",\"foodPrice\":10.99}"))),
+            @ApiResponse(responseCode = "400", description = "Failed updating food details")
+    })
+    ResponseEntity<?> updatingFood(@PathVariable Long id, @RequestBody FoodItemDto item){
+        AddFoodDto addFoodDto = foodService.updateFoodItem(id, item);
+        if(addFoodDto != null){
+            return new ResponseEntity<>(addFoodDto, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(new ErrorResponse("Failed updating food details"), HttpStatus.BAD_REQUEST);
         }
     }
 
