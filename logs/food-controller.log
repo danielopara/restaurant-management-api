@@ -1,0 +1,4 @@
+2024-04-17 14:52:33.446 [http-nio-2002-exec-1] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/rie
+2024-04-17 14:52:33.850 [http-nio-2002-exec-1] ERROR c.u.r.controller.FoodController - Food not found 400 BAD_REQUEST
+ Endpoint :/api/v1/food/rie
+2024-04-17 14:52:54.350 [http-nio-2002-exec-3] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/rice

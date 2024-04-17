@@ -1,0 +1,2 @@
+2024-04-17 14:52:33.846 [http-nio-2002-exec-1] WARN  c.u.r.service.impl.FoodServiceImpl - No food item found with name: rie
+2024-04-17 14:52:54.382 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(foodName=Rice, foodPrice=950.00)

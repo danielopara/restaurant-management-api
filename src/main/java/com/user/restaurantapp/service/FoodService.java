@@ -7,11 +7,12 @@ import org.springframework.data.domain.Sort;
 
 import javax.swing.*;
 import java.util.List;
+import java.util.Optional;
 
 public interface FoodService {
 //    FoodItem
     AddFoodDto addFoodItem(FoodItemDto item);
     List<FoodItemDto> getFoodItems( int pageNumber, int pageSize, String sortBy, SortOrder sortOrder);
     AddFoodDto updateFoodItem(Long id, FoodItemDto item);
-    List<FoodItemDto> getFoodByName(String foodName);
+    FoodItemDto getFoodByName(String foodName);
 }

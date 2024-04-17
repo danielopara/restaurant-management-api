@@ -1,0 +1,36 @@
+<configuration>
+    <appender name="FILE_FOOD" class="ch.qos.logback.core.FileAppender">
+        <file>logs/food-controller.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="file_foodService" class="ch.qos.logback.core.FileAppender">
+        <file>logs/food-service.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Configure the logger to log INFO level messages to the general log file -->
+    <logger name="com.user.restaurantapp.controller.FoodController" level="info" additivity="false">
+        <appender-ref ref="FILE_FOOD" />
+    </logger>
+
+    <logger name="com.user.restaurantapp.service.impl.FoodServiceImpl" level="info" additivity="false">
+        <appender-ref ref="file_foodService" />
+    </logger>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root logger configuration -->
+    <root level="info">
+        <appender-ref ref="CONSOLE" />
+    </root>
+
+    <logger name="org.springframework.boot" level="info" />
+</configuration>

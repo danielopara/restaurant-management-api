@@ -1,5 +1,6 @@
 package com.user.restaurantapp.controller;
 
+import com.user.restaurantapp.config.LoggingUtil;
 import com.user.restaurantapp.dto.AddFoodDto;
 import com.user.restaurantapp.dto.FoodItemDto;
 import com.user.restaurantapp.service.impl.FoodServiceImpl;
@@ -8,7 +9,9 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import org.springframework.data.domain.Sort;
+import jakarta.servlet.http.HttpServletRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +19,13 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Nonnegative;
 import javax.swing.*;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/food")
 public class FoodController {
     private final FoodServiceImpl foodService;
+    private static final Logger logger = LoggerFactory.getLogger(FoodController.class);
 
     public FoodController(FoodServiceImpl foodService) {
         this.foodService = foodService;
@@ -33,11 +38,14 @@ public class FoodController {
             examples = @ExampleObject(value = "{\"message\":\"Food added\",\"item\":{\"foodName\":\"Pizza\",\"foodPrice\":10.99}}"))),
             @ApiResponse(responseCode = "400", description = "Failed to add food item")
     })
-    ResponseEntity<?> addFood(@RequestBody FoodItemDto item){
+    ResponseEntity<?> addFood(@RequestBody FoodItemDto item, HttpServletRequest request){
+        String requestURI = request.getRequestURI();
         AddFoodDto addFoodDto = foodService.addFoodItem(item);
+        logger.info("Received a request from: " + requestURI);
         if(addFoodDto != null){
             return new ResponseEntity<>(addFoodDto, HttpStatus.OK);
         } else {
+            logger.error("Failed to add food " + HttpStatus.BAD_REQUEST + "\n Endpoint :" + requestURI);
             return new ResponseEntity<>(new ErrorResponse("Failed to add food"), HttpStatus.BAD_REQUEST);
         }
     }
@@ -52,11 +60,15 @@ public class FoodController {
     ResponseEntity<?> getFood(@RequestParam(defaultValue = "0") @Nonnegative Integer pageNumber,
                               @RequestParam(defaultValue = "10") @Nonnegative Integer pageSize,
                               @RequestParam(defaultValue = "id") String sortBy,
-                              @RequestParam(defaultValue = "ASCENDING") SortOrder sortOrder){
+                              @RequestParam(defaultValue = "ASCENDING") SortOrder sortOrder,
+                              HttpServletRequest request){
+        String requestURI = request.getRequestURI();
+        logger.info("Received a request " + requestURI);
         List<FoodItemDto> foodItems = foodService.getFoodItems(pageNumber, pageSize, sortBy, sortOrder);
         if(foodItems != null){
             return new ResponseEntity<>(foodItems, HttpStatus.OK);
         } else {
+            logger.error("Failed getting food list " + HttpStatus.BAD_REQUEST + "\n Endpoint :" + requestURI);
             return new ResponseEntity<>(new ErrorResponse("Failed getting food list"), HttpStatus.BAD_REQUEST);
         }
     }
@@ -67,11 +79,14 @@ public class FoodController {
                     examples = @ExampleObject(value = "[{\"foodName\":\"Pizza\",\"foodPrice\":10.99}"))),
             @ApiResponse(responseCode = "400", description = "Failed updating food details")
     })
-    ResponseEntity<?> updatingFood(@PathVariable Long id, @RequestBody FoodItemDto item){
+    ResponseEntity<?> updatingFood(@PathVariable Long id, @RequestBody FoodItemDto item, HttpServletRequest request){
+        String requestURI = request.getRequestURI();
+        logger.info("Received a request from: " + requestURI);
         AddFoodDto addFoodDto = foodService.updateFoodItem(id, item);
         if(addFoodDto != null){
             return new ResponseEntity<>(addFoodDto, HttpStatus.OK);
         } else {
+            logger.error("Failed updating food details " + HttpStatus.BAD_REQUEST + "\n Endpoint :" + requestURI);
             return new ResponseEntity<>(new ErrorResponse("Failed updating food details"), HttpStatus.BAD_REQUEST);
         }
     }
@@ -84,11 +99,14 @@ public class FoodController {
             @ApiResponse(responseCode = "400", description = "Food not found")
     })
     @GetMapping("/{foodName}")
-    ResponseEntity<?> getFoodByFoodName(@PathVariable String foodName){
-        List<FoodItemDto> foodItem = foodService.getFoodByName(foodName);
-        if(foodItem != null && foodItem.isEmpty()){
+    ResponseEntity<?> getFoodByFoodName(@PathVariable String foodName, HttpServletRequest request){
+        String requestURI = request.getRequestURI();
+        logger.info("Received a request from: " + requestURI);
+        FoodItemDto foodItem = foodService.getFoodByName(foodName);
+        if(foodItem != null){
             return new ResponseEntity<>(foodItem, HttpStatus.OK);
         } else {
+            logger.error("Food not found " + HttpStatus.BAD_REQUEST + "\n Endpoint :" + requestURI);
             return new ResponseEntity<>(new ErrorResponse("Food not found"), HttpStatus.BAD_REQUEST);
         }
     }

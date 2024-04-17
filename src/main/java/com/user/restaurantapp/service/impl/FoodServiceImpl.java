@@ -60,7 +60,7 @@ public class FoodServiceImpl implements FoodService {
             newFoodItem.setFoodName(item.getFoodName());
             newFoodItem.setFoodPrice(item.getFoodPrice());
             foodRepository.save(newFoodItem);
-            logger.info("Food added: " + item.getFoodName());
+            logger.info("Food added: " + item.getFoodName() + " " + item.getFoodPrice());
         } catch (Exception e) {
             responseDto.setMessage("Failed to add food");
             responseDto.setItem("An error occurred while saving food item");
@@ -89,6 +89,7 @@ public class FoodServiceImpl implements FoodService {
         for (FoodItem foodItem : allFoodItems){
                 foodItemDtos.add(mapToFoodItemDto(foodItem));
         }
+        logger.info("Retrieved all foods");
         return foodItemDtos;
     }
 
@@ -111,9 +112,11 @@ public class FoodServiceImpl implements FoodService {
             food.setFoodPrice(item.getFoodPrice());
 
             responseDto.setMessage("Food details has updated");
+            logger.info("Food updated from "+ food + "to " + item );
             responseDto.setItem(item);
             foodRepository.save(food);
         } else {
+            logger.error("Food not found else food details did not update with id: " + id + "and: " + item );
             responseDto.setMessage("Food not found else food details did not update");
             responseDto.setItem(null);
         }
@@ -124,15 +127,18 @@ public class FoodServiceImpl implements FoodService {
     }
 
     @Override
-    public List<FoodItemDto> getFoodByName(String foodName) {
+    public FoodItemDto getFoodByName(String foodName) {
+        FoodItemDto responseDto = new FoodItemDto();
         Optional<FoodItem> foodItemOptional = foodRepository.findByFoodName(foodName);
         if (foodItemOptional.isEmpty()) {
             log.warn("No food item found with name: {}", foodName);
             return null;
         } else {
             FoodItem foodItem = foodItemOptional.get();
-            FoodItemDto foodItemDto = mapToFoodItemDto(foodItem);
-            return Collections.singletonList(foodItemDto);
+            responseDto.setFoodName(foodItem.getFoodName());
+            responseDto.setFoodPrice(foodItem.getFoodPrice());
+            logger.info("Got " + responseDto);
+            return responseDto;
         }
     }
 
