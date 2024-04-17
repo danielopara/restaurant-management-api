@@ -9,10 +9,15 @@ import io.micrometer.common.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import javax.swing.*;
 import java.math.BigDecimal;
 import java.util.*;
+
+import static javax.swing.SortOrder.ASCENDING;
+import static javax.swing.SortOrder.DESCENDING;
 
 @Service
 @Slf4j
@@ -63,8 +68,20 @@ public class FoodServiceImpl implements FoodService {
     }
 
     @Override
-    public List<FoodItemDto> getFoodItems() {
-        List<FoodItem> allFoodItems = foodRepository.findAll();
+    public List<FoodItemDto> getFoodItems(String sortBy, SortOrder sortOrder) {
+        Sort sort;
+
+        switch (sortOrder) {
+            case ASCENDING:
+                sort = Sort.by(sortBy).ascending();
+                break;
+            case DESCENDING:
+                sort = Sort.by(sortBy).descending();
+                break;
+            default:
+                sort = Sort.by(sortBy);
+        }
+        List<FoodItem> allFoodItems = foodRepository.findAll(sort);
         List<FoodItemDto> foodItemDtos = new ArrayList<>();
         for (FoodItem foodItem : allFoodItems){
                 foodItemDtos.add(mapToFoodItemDto(foodItem));
