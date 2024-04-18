@@ -1,2 +1,52 @@
 2024-04-17 14:52:33.846 [http-nio-2002-exec-1] WARN  c.u.r.service.impl.FoodServiceImpl - No food item found with name: rie
 2024-04-17 14:52:54.382 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(foodName=Rice, foodPrice=950.00)
+2024-04-17 17:04:42.262 [http-nio-2002-exec-7] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-17 17:06:38.889 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-17 17:08:21.745 [http-nio-2002-exec-6] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-17 17:11:14.876 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-17 17:15:17.539 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-17 17:15:27.672 [http-nio-2002-exec-4] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-17 17:23:28.208 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-17 17:23:38.878 [http-nio-2002-exec-4] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 09:01:11.741 [http-nio-2002-exec-2] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 09:02:23.524 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 09:02:53.102 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 09:04:02.661 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 09:09:33.909 [http-nio-2002-exec-6] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 09:11:17.826 [http-nio-2002-exec-2] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 09:18:08.893 [http-nio-2002-exec-2] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 09:26:13.098 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 09:26:26.402 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 11:59:41.083 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 12:02:47.473 [http-nio-2002-exec-4] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 12:03:26.326 [http-nio-2002-exec-9] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Amala 100
+2024-04-18 12:03:39.354 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 12:14:27.844 [http-nio-2002-exec-7] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Eba 100
+2024-04-18 12:16:29.529 [http-nio-2002-exec-7] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Starch 100
+2024-04-18 12:16:55.178 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 12:16:55.178 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods from backend
+2024-04-18 12:38:42.861 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 12:38:42.862 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods from cache
+2024-04-18 12:45:32.781 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 12:45:32.781 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods from cache
+2024-04-18 12:59:13.697 [http-nio-2002-exec-5] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: kuli kuli 100
+2024-04-18 12:59:33.828 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 12:59:33.828 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods from cache
+2024-04-18 12:59:49.696 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: kuli 100
+2024-04-18 13:02:16.480 [http-nio-2002-exec-9] INFO  c.u.r.service.impl.FoodServiceImpl - Food updated from com.user.restaurantapp.model.FoodItem@2d35f06dto FoodItemDto(foodName=Kuli, foodPrice=10)
+2024-04-18 13:04:56.494 [http-nio-2002-exec-4] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Chin 100
+2024-04-18 13:05:20.921 [http-nio-2002-exec-4] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 13:05:20.922 [http-nio-2002-exec-4] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods from cache
+2024-04-18 13:05:38.800 [http-nio-2002-exec-9] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 13:05:38.801 [http-nio-2002-exec-9] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods from cache
+2024-04-18 13:05:49.160 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 13:05:49.160 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods from cache
+2024-04-18 13:26:41.333 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 13:26:41.334 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods from cache
+2024-04-18 13:36:47.046 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 13:36:47.047 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods from cache
+2024-04-18 13:49:02.757 [http-nio-2002-exec-2] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 13:49:02.758 [http-nio-2002-exec-2] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods from cache
+2024-04-18 13:49:26.264 [http-nio-2002-exec-9] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Fish 450
+2024-04-18 13:49:31.519 [http-nio-2002-exec-10] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-04-18 13:49:31.519 [http-nio-2002-exec-10] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods from cache
