@@ -151,6 +151,20 @@ public class FoodServiceImpl implements FoodService {
         }
     }
 
+    @Override
+    public String deleteFoodItemById(Long id) {
+        Optional<FoodItem> foodItem = foodRepository.findById(id);
+        if(foodItem.isPresent()){
+            foodRepository.deleteById(id);
+            logger.info("Food Item: " + foodItem.get().getFoodName() +
+                    "\nwith price: " + foodItem.get().getFoodPrice().toString() +" has been deleted");
+            return "Food Item: " + foodItem.get().getFoodName() +
+                    "\nwith price: " + foodItem.get().getFoodPrice().toString() +" has been deleted";
+        }
+        logger.error("Failed to delete Food item with id: " +id + "\nit does not exist");
+        return "Failed to delete Food item with id: " +id + "\nit does not exist";
+    }
+
 
     private FoodItemDto mapToFoodItemDto(FoodItem foodItem) {
         FoodItemDto foodItemDto = new FoodItemDto();

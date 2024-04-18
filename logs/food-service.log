@@ -50,3 +50,6 @@
 2024-04-18 13:49:26.264 [http-nio-2002-exec-9] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Fish 450
 2024-04-18 13:49:31.519 [http-nio-2002-exec-10] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
 2024-04-18 13:49:31.519 [http-nio-2002-exec-10] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods from cache
+2024-04-18 14:09:23.827 [http-nio-2002-exec-7] INFO  c.u.r.service.impl.FoodServiceImpl - Food Item: Beanswith price: 950.00 has been deleted
+2024-04-18 14:10:04.860 [http-nio-2002-exec-9] ERROR c.u.r.service.impl.FoodServiceImpl - Failed to delete Food Item: " + foodItem.get().getFoodName()
+"with price: " + foodItem.get().getFoodPrice().toString()

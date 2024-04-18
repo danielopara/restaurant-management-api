@@ -111,6 +111,23 @@ public class FoodController {
         }
     }
 
+    @Operation(method = "GET", summary = "Delete a food item", responses = {
+            @ApiResponse(responseCode = "200", description = "Food deleted"),
+            @ApiResponse(responseCode = "400", description = "Food not deleted")
+    })
+    @DeleteMapping("/delete-food/{id}")
+    ResponseEntity<?> delete_food (@PathVariable Long id, HttpServletRequest request) {
+        String requestURI = request.getRequestURI();
+        logger.info("Received a request from: " + requestURI);
+        String foodItem = foodService.deleteFoodItemById(id);
+        if(foodItem != null){
+            return new ResponseEntity<>(foodItem, HttpStatus.OK);
+        } else {
+            logger.error("Food not found " + HttpStatus.BAD_REQUEST + "\n Endpoint :" + requestURI);
+            return new ResponseEntity<>(new ErrorResponse("Food not found"), HttpStatus.BAD_REQUEST);
+        }
+    }
+
     static class ErrorResponse{
         private String message;
         public ErrorResponse(String message) {

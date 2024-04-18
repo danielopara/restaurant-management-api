@@ -13,8 +13,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FoodItemDto {
-//    private static final long serialVersionUID = 2077054515273446470L;
-
     private Long id;
     private String foodName;
     private BigDecimal foodPrice;
