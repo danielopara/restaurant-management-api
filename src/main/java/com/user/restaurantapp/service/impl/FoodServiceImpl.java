@@ -9,6 +9,7 @@ import io.micrometer.common.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -70,6 +71,7 @@ public class FoodServiceImpl implements FoodService {
     }
 
     @Override
+    @Cacheable(value = "FoodItemDto", key = "#pageNumber + '|' + #pageSize + '|' + #sortBy + '|' + #sortOrder")
     public List<FoodItemDto> getFoodItems( int pageNumber, int pageSize,String sortBy, SortOrder sortOrder) {
         Sort sort;
 
@@ -90,6 +92,13 @@ public class FoodServiceImpl implements FoodService {
                 foodItemDtos.add(mapToFoodItemDto(foodItem));
         }
         logger.info("Retrieved all foods");
+        boolean fromCache = true;
+        if (fromCache) {
+            logger.info("Retrieved all foods from cache");
+        } else {
+            logger.info("Retrieved all foods from backend");
+        }
+        System.out.println("gotten from db");
         return foodItemDtos;
     }
 
@@ -142,9 +151,24 @@ public class FoodServiceImpl implements FoodService {
         }
     }
 
+    @Override
+    public String deleteFoodItemById(Long id) {
+        Optional<FoodItem> foodItem = foodRepository.findById(id);
+        if(foodItem.isPresent()){
+            foodRepository.deleteById(id);
+            logger.info("Food Item: " + foodItem.get().getFoodName() +
+                    "\nwith price: " + foodItem.get().getFoodPrice().toString() +" has been deleted");
+            return "Food Item: " + foodItem.get().getFoodName() +
+                    "\nwith price: " + foodItem.get().getFoodPrice().toString() +" has been deleted";
+        }
+        logger.error("Failed to delete Food item with id: " +id + "\nit does not exist");
+        return "Failed to delete Food item with id: " +id + "\nit does not exist";
+    }
+
 
     private FoodItemDto mapToFoodItemDto(FoodItem foodItem) {
         FoodItemDto foodItemDto = new FoodItemDto();
+        foodItemDto.setId(foodItem.getId());
         foodItemDto.setFoodName(foodItem.getFoodName());
         foodItemDto.setFoodPrice(foodItem.getFoodPrice());
         return foodItemDto;
