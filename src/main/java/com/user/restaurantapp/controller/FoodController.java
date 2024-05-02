@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +24,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/food")
+@Tag(name = "Food Service", description = "Services that belongs to Food items management")
 public class FoodController {
     private final FoodServiceImpl foodService;
     private static final Logger logger = LoggerFactory.getLogger(FoodController.class);

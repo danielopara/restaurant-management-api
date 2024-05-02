@@ -12,6 +12,4 @@ public class OrderDto {
     private String personName;
     private List<OrderItemsDto> orderList;
 
-    private BigDecimal totalPrice;
-
 }

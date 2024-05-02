@@ -1,7 +1,8 @@
 package com.user.restaurantapp.service;
 import com.user.restaurantapp.dto.OrderDto;
+import com.user.restaurantapp.response.BaseResponse;
 
 
 public interface OrderService {
-    OrderDto createOrder(OrderDto request);
+    BaseResponse createOrder(OrderDto request);
 }

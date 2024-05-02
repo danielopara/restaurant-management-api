@@ -8,7 +8,13 @@ import com.user.restaurantapp.model.Order;
 import com.user.restaurantapp.model.OrderedItems;
 import com.user.restaurantapp.repository.FoodRepository;
 import com.user.restaurantapp.repository.OrderRepository;
+import com.user.restaurantapp.response.BaseResponse;
 import com.user.restaurantapp.service.OrderService;
+import jakarta.servlet.http.HttpServletResponse;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -29,13 +35,26 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public OrderDto createOrder(OrderDto orderRequestDto) {
-        BigDecimal total = BigDecimal.ZERO;
-        List<OrderedItems> updatedOrderList = new ArrayList<>();
+    public BaseResponse createOrder(OrderDto orderRequestDto) {
+        try {
+            BigDecimal total = BigDecimal.ZERO;
+            List<OrderedItems> updatedOrderList = new ArrayList<>();
 
-        for (OrderItemsDto orderItem : orderRequestDto.getOrderList()) {
-            Optional<FoodItem> foodItemOptional = foodRepository.findByFoodName(orderItem.getFoodName());
-            if (foodItemOptional.isPresent()) {
+            for (OrderItemsDto orderItem : orderRequestDto.getOrderList()) {
+                Optional<FoodItem> foodItemOptional = foodRepository.findByFoodName(orderItem.getFoodName());
+                if (!foodItemOptional.isPresent()) {
+                    logger.warn("Food item not found: {}", orderItem.getFoodName());
+                    return new BaseResponse(
+                            HttpServletResponse.SC_OK,
+                            "Item not found",
+                            orderItem.getFoodName(),
+                            null
+                    );
+                }
+            }
+
+            for (OrderItemsDto orderItem : orderRequestDto.getOrderList()) {
+                Optional<FoodItem> foodItemOptional = foodRepository.findByFoodName(orderItem.getFoodName());
                 FoodItem foodItem = foodItemOptional.get();
                 BigDecimal foodPrice = foodItem.getFoodPrice();
 
@@ -47,66 +66,47 @@ public class OrderServiceImpl implements OrderService {
 
                 total = total.add(foodPrice);
                 updatedOrderList.add(orderedItem);
-            } else {
-                logger.warn("Food item not found: {}", orderItem.getFoodName());
+
             }
-        }
 
-        orderRequestDto.setTotalPrice(total);
-
-        Order mainOrder = new Order();
-        mainOrder.setPersonName(orderRequestDto.getPersonName());
-        mainOrder.setOrderList(updatedOrderList);
-        mainOrder.setTotalPrice(total);
-
-        try {
+            Order mainOrder = new Order();
+            String refNumber = mainOrder.generateRandomString();
+            mainOrder.setPersonName(orderRequestDto.getPersonName());
+            mainOrder.setRefNo(refNumber);
+            mainOrder.setOrderList(updatedOrderList);
+            mainOrder.setTotalPrice(total);
             orderRepository.save(mainOrder);
+
+            OrderResponseDto responseDto = new OrderResponseDto();
+            responseDto.setPersonName(orderRequestDto.getPersonName());
+            responseDto.setOrderList(orderRequestDto.getOrderList());
+            responseDto.setTotalPrice(total);
+
             logger.info("Order created and saved successfully: {}", orderRequestDto.getPersonName());
+            return new BaseResponse(
+                    HttpServletResponse.SC_OK,
+                    "Order created",
+                    responseDto,
+                    null
+            );
         } catch (Exception e) {
             logger.error("Failed to save order: {}", e.getMessage(), e);
+            return new BaseResponse(
+                    HttpServletResponse.SC_BAD_REQUEST,
+                    "Error",
+                    null,
+                    e.getMessage()
+            );
         }
 
-        return orderRequestDto;
     }
-
-
-//    @Override
-//    public OrderDto createOrder(OrderDto request) {
-//        OrderDto orderDto = new OrderDto();
-//        Order mainOrder = new Order();
-//        BigDecimal total = BigDecimal.ZERO;
-//
-//        List<OrderedItems> updatedOrderList = new ArrayList<>();
-//
-//        for(OrderItemsDto order: request.getOrderList()) {
-//            Optional<FoodItem> foodItemDto = foodRepository.findByFoodName(order.getFoodName());
-//            if(foodItemDto.isPresent()){
-//                FoodItem dto = foodItemDto.get();
-//
-//                BigDecimal foodPrice = dto.getFoodPrice();
-//
-//
-//                OrderedItems orderedItems = new OrderedItems();
-//                orderedItems.setFoodName(dto.getFoodName());
-//                orderedItems.setPortion(order.getPortion());
-//
-//
-//                total = total.add(foodPrice);
-//                updatedOrderList.add(orderedItems);
-//            } else {
-//
-//            }
-//        }
-//        orderDto.setPersonName(request.getPersonName());
-//        orderDto.setOrderList(request.getOrderList());
-//        orderDto.setTotalPrice(total);
-//
-//        mainOrder.setPersonName(request.getPersonName());
-//        mainOrder.setOrderList(updatedOrderList);
-//        mainOrder.setTotalPrice(total);
-//
-//        orderRepository.save(mainOrder);
-//
-//        return orderDto;
-//    }
+}
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+class OrderResponseDto{
+    private String personName;
+    private List<OrderItemsDto> orderList;
+    private BigDecimal totalPrice;
 }

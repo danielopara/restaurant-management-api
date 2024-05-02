@@ -71,7 +71,7 @@ public class FoodServiceImpl implements FoodService {
     }
 
     @Override
-    @Cacheable(value = "FoodItemDto", key = "#pageNumber + '|' + #pageSize + '|' + #sortBy + '|' + #sortOrder")
+//    @Cacheable(value = "FoodItemDto", key = "#pageNumber + '|' + #pageSize + '|' + #sortBy + '|' + #sortOrder")
     public List<FoodItemDto> getFoodItems( int pageNumber, int pageSize,String sortBy, SortOrder sortOrder) {
         Sort sort;
 
