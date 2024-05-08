@@ -55,3 +55,6 @@
 "with price: " + foodItem.get().getFoodPrice().toString()
 2024-05-02 09:00:09.731 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
 2024-05-02 09:00:09.732 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods from cache
+2024-05-03 15:59:26.330 [http-nio-2002-exec-9] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-05-03 15:59:26.331 [http-nio-2002-exec-9] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods from cache
+2024-05-08 09:58:53.052 [http-nio-2002-exec-4] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods

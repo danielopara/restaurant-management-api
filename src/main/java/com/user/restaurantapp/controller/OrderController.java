@@ -9,12 +9,10 @@ import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("api/v1/order")
 @RestController
@@ -25,6 +23,16 @@ public class OrderController {
 
     public OrderController(OrderServiceImpl orderService) {
         this.orderService = orderService;
+    }
+    @GetMapping("/orders")
+    @Operation(method = "GET", summary = "Get all orders")
+    ResponseEntity<?> getAllOrders(){
+        BaseResponse response = orderService.allOrders();
+        if(response.getStatus() == HttpStatus.OK.value()){
+            return new ResponseEntity<>(response, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        }
     }
 
     @PostMapping("post-order")

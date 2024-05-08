@@ -33,6 +33,14 @@ public class FoodController {
         this.foodService = foodService;
     }
 
+    private void logRequest( HttpServletRequest request) {
+        logger.info("Received a request from: {}", request.getRequestURI());
+    }
+    private void logError(HttpServletRequest request){
+        logger.error("Food not found {} \n Endpoint :{}" , HttpStatus.BAD_REQUEST , request.getRequestURI());
+    }
+
+
     @PostMapping("/add-food")
     @Operation(method = "POST", summary = "Add a new food item", responses = {
             @ApiResponse(responseCode = "200", description = "Food item added successfully",
@@ -41,13 +49,12 @@ public class FoodController {
             @ApiResponse(responseCode = "400", description = "Failed to add food item")
     })
     ResponseEntity<?> addFood(@RequestBody FoodItemDto item, HttpServletRequest request){
-        String requestURI = request.getRequestURI();
         AddFoodDto addFoodDto = foodService.addFoodItem(item);
-        logger.info("Received a request from: " + requestURI);
+        logRequest(request);
         if(addFoodDto != null){
             return new ResponseEntity<>(addFoodDto, HttpStatus.OK);
         } else {
-            logger.error("Failed to add food " + HttpStatus.BAD_REQUEST + "\n Endpoint :" + requestURI);
+            logError(request);
             return new ResponseEntity<>(new ErrorResponse("Failed to add food"), HttpStatus.BAD_REQUEST);
         }
     }
@@ -65,12 +72,12 @@ public class FoodController {
                               @RequestParam(defaultValue = "ASCENDING") SortOrder sortOrder,
                               HttpServletRequest request){
         String requestURI = request.getRequestURI();
-        logger.info("Received a request " + requestURI);
+        logRequest(request);
         List<FoodItemDto> foodItems = foodService.getFoodItems(pageNumber, pageSize, sortBy, sortOrder);
         if(foodItems != null){
             return new ResponseEntity<>(foodItems, HttpStatus.OK);
         } else {
-            logger.error("Failed getting food list " + HttpStatus.BAD_REQUEST + "\n Endpoint :" + requestURI);
+            logError(request);
             return new ResponseEntity<>(new ErrorResponse("Failed getting food list"), HttpStatus.BAD_REQUEST);
         }
     }
@@ -83,12 +90,12 @@ public class FoodController {
     })
     ResponseEntity<?> updatingFood(@PathVariable Long id, @RequestBody FoodItemDto item, HttpServletRequest request){
         String requestURI = request.getRequestURI();
-        logger.info("Received a request from: " + requestURI);
+        logRequest(request);
         AddFoodDto addFoodDto = foodService.updateFoodItem(id, item);
         if(addFoodDto != null){
             return new ResponseEntity<>(addFoodDto, HttpStatus.OK);
         } else {
-            logger.error("Failed updating food details " + HttpStatus.BAD_REQUEST + "\n Endpoint :" + requestURI);
+            logError(request);
             return new ResponseEntity<>(new ErrorResponse("Failed updating food details"), HttpStatus.BAD_REQUEST);
         }
     }
@@ -103,12 +110,12 @@ public class FoodController {
     @GetMapping("/{foodName}")
     ResponseEntity<?> getFoodByFoodName(@PathVariable String foodName, HttpServletRequest request){
         String requestURI = request.getRequestURI();
-        logger.info("Received a request from: " + requestURI);
+        logRequest(request);
         FoodItemDto foodItem = foodService.getFoodByName(foodName);
         if(foodItem != null){
             return new ResponseEntity<>(foodItem, HttpStatus.OK);
         } else {
-            logger.error("Food not found " + HttpStatus.BAD_REQUEST + "\n Endpoint :" + requestURI);
+            logError(request);
             return new ResponseEntity<>(new ErrorResponse("Food not found"), HttpStatus.BAD_REQUEST);
         }
     }
@@ -120,12 +127,12 @@ public class FoodController {
     @DeleteMapping("/delete-food/{id}")
     ResponseEntity<?> delete_food (@PathVariable Long id, HttpServletRequest request) {
         String requestURI = request.getRequestURI();
-        logger.info("Received a request from: " + requestURI);
+        logRequest(request);
         String foodItem = foodService.deleteFoodItemById(id);
         if(foodItem != null){
             return new ResponseEntity<>(foodItem, HttpStatus.OK);
         } else {
-            logger.error("Food not found " + HttpStatus.BAD_REQUEST + "\n Endpoint :" + requestURI);
+            logError(request);
             return new ResponseEntity<>(new ErrorResponse("Food not found"), HttpStatus.BAD_REQUEST);
         }
     }

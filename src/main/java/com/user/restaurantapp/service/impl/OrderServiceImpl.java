@@ -55,18 +55,19 @@ public class OrderServiceImpl implements OrderService {
 
             for (OrderItemsDto orderItem : orderRequestDto.getOrderList()) {
                 Optional<FoodItem> foodItemOptional = foodRepository.findByFoodName(orderItem.getFoodName());
-                FoodItem foodItem = foodItemOptional.get();
-                BigDecimal foodPrice = foodItem.getFoodPrice();
+                if(foodItemOptional.isPresent()){
+                    FoodItem foodItem = foodItemOptional.get();
+                    BigDecimal foodPrice = foodItem.getFoodPrice();
 
-                OrderedItems orderedItem = new OrderedItems();
-                orderedItem.setFoodName(foodItem.getFoodName());
-                int portion = orderItem.getPortion() == 0 ? 1 : orderItem.getPortion();
-                orderedItem.setPortion(portion);
-                foodPrice = foodPrice.multiply(BigDecimal.valueOf(portion));
+                    OrderedItems orderedItem = new OrderedItems();
+                    orderedItem.setFoodName(foodItem.getFoodName());
+                    int portion = orderItem.getPortion() == 0 ? 1 : orderItem.getPortion();
+                    orderedItem.setPortion(portion);
+                    foodPrice = foodPrice.multiply(BigDecimal.valueOf(portion));
 
-                total = total.add(foodPrice);
-                updatedOrderList.add(orderedItem);
-
+                    total = total.add(foodPrice);
+                    updatedOrderList.add(orderedItem);
+                }
             }
 
             Order mainOrder = new Order();
@@ -99,6 +100,26 @@ public class OrderServiceImpl implements OrderService {
             );
         }
 
+    }
+
+    @Override
+    public BaseResponse allOrders() {
+//        try{
+            List<Order> orders = orderRepository.findAll();
+            return new BaseResponse(
+                    HttpServletResponse.SC_OK,
+                    "Orders",
+                    orders,
+                    null
+            );
+//        } catch (Exception e){
+//            return new BaseResponse(
+//                    HttpServletResponse.SC_BAD_REQUEST,
+//                    "ERROR",
+//                    null,
+//                    null
+//            );
+//        }
     }
 }
 @Data

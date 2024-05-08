@@ -19,8 +19,7 @@ import javax.swing.*;
 import java.math.BigDecimal;
 import java.util.*;
 
-import static javax.swing.SortOrder.ASCENDING;
-import static javax.swing.SortOrder.DESCENDING;
+
 
 @Service
 @Slf4j
@@ -30,6 +29,8 @@ public class FoodServiceImpl implements FoodService {
     public FoodServiceImpl(FoodRepository foodRepository) {
         this.foodRepository = foodRepository;
     }
+
+//    public void logInfo()
 
     @Override
     public AddFoodDto addFoodItem(FoodItemDto item) {
@@ -61,11 +62,11 @@ public class FoodServiceImpl implements FoodService {
             newFoodItem.setFoodName(item.getFoodName());
             newFoodItem.setFoodPrice(item.getFoodPrice());
             foodRepository.save(newFoodItem);
-            logger.info("Food added: " + item.getFoodName() + " " + item.getFoodPrice());
+            logger.info("Food added: {} {}" , item.getFoodName() , item.getFoodPrice());
         } catch (Exception e) {
             responseDto.setMessage("Failed to add food");
             responseDto.setItem("An error occurred while saving food item");
-            logger.error("Failed to add food: " + e.getMessage(), e);
+            logger.error("Failed to add food: {}" , e.getMessage());
         }
         return responseDto;
     }
@@ -92,12 +93,6 @@ public class FoodServiceImpl implements FoodService {
                 foodItemDtos.add(mapToFoodItemDto(foodItem));
         }
         logger.info("Retrieved all foods");
-        boolean fromCache = true;
-        if (fromCache) {
-            logger.info("Retrieved all foods from cache");
-        } else {
-            logger.info("Retrieved all foods from backend");
-        }
         System.out.println("gotten from db");
         return foodItemDtos;
     }
@@ -121,11 +116,11 @@ public class FoodServiceImpl implements FoodService {
             food.setFoodPrice(item.getFoodPrice());
 
             responseDto.setMessage("Food details has updated");
-            logger.info("Food updated from "+ food + "to " + item );
+            logger.info("Food updated from {} to {}", food, item );
             responseDto.setItem(item);
             foodRepository.save(food);
         } else {
-            logger.error("Food not found else food details did not update with id: " + id + "and: " + item );
+            logger.error("Food not found else food details did not update with id: {} and {}" , id , item );
             responseDto.setMessage("Food not found else food details did not update");
             responseDto.setItem(null);
         }
@@ -146,7 +141,7 @@ public class FoodServiceImpl implements FoodService {
             FoodItem foodItem = foodItemOptional.get();
             responseDto.setFoodName(foodItem.getFoodName());
             responseDto.setFoodPrice(foodItem.getFoodPrice());
-            logger.info("Got " + responseDto);
+            logger.info("Got {}" , responseDto);
             return responseDto;
         }
     }
@@ -156,12 +151,12 @@ public class FoodServiceImpl implements FoodService {
         Optional<FoodItem> foodItem = foodRepository.findById(id);
         if(foodItem.isPresent()){
             foodRepository.deleteById(id);
-            logger.info("Food Item: " + foodItem.get().getFoodName() +
-                    "\nwith price: " + foodItem.get().getFoodPrice().toString() +" has been deleted");
+            logger.info("Food Item: {} \nwith price: {}" , foodItem.get().getFoodName() ,
+                     foodItem.get().getFoodPrice() );
             return "Food Item: " + foodItem.get().getFoodName() +
-                    "\nwith price: " + foodItem.get().getFoodPrice().toString() +" has been deleted";
+                    "\nwith price: " + foodItem.get().getFoodPrice() +" has been deleted";
         }
-        logger.error("Failed to delete Food item with id: " +id + "\nit does not exist");
+        logger.error("Failed to delete Food item with id: {} \nit does not exist",id);
         return "Failed to delete Food item with id: " +id + "\nit does not exist";
     }
 

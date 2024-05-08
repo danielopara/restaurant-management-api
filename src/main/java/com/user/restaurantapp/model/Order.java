@@ -1,5 +1,6 @@
 package com.user.restaurantapp.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.math.BigDecimal;
@@ -16,8 +17,9 @@ public class Order {
 
     private String refNo;
     private String personName;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
+    @JsonManagedReference
     private List<OrderedItems> orderList;
     private BigDecimal totalPrice;
 
