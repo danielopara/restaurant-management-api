@@ -3,6 +3,7 @@ package com.user.restaurantapp.service.impl;
 
 import com.user.restaurantapp.dto.OrderDto;
 import com.user.restaurantapp.dto.OrderItemsDto;
+import com.user.restaurantapp.exception.NotFound;
 import com.user.restaurantapp.model.FoodItem;
 import com.user.restaurantapp.model.Order;
 import com.user.restaurantapp.model.OrderedItems;
@@ -41,6 +42,11 @@ public class OrderServiceImpl implements OrderService {
             List<OrderedItems> updatedOrderList = new ArrayList<>();
 
             for (OrderItemsDto orderItem : orderRequestDto.getOrderList()) {
+//                FoodItem foodItem = foodRepository.findByFoodName(orderItem.getFoodName())
+//                        .orElseThrow(() -> new NotFound(
+//                                "Item not found: " + orderItem.getFoodName()
+//                        ));
+
                 Optional<FoodItem> foodItemOptional = foodRepository.findByFoodName(orderItem.getFoodName());
                 if (!foodItemOptional.isPresent()) {
                     logger.warn("Food item not found: {}", orderItem.getFoodName());
