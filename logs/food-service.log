@@ -64,3 +64,14 @@
 2024-05-11 23:25:34.350 [http-nio-2002-exec-6] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: beans 10
 2024-05-12 11:02:18.465 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 10
 2024-05-12 11:12:09.807 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 10
+2024-05-12 15:50:47.308 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-05-12 15:53:17.841 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-05-12 15:57:17.711 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-05-12 15:58:05.183 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-05-12 16:01:04.095 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-05-12 16:03:04.365 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-05-12 16:07:16.172 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-05-12 16:10:36.368 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-05-12 16:15:52.725 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-05-12 16:15:52.725 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-05-12 16:43:52.937 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
