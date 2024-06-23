@@ -1,6 +1,7 @@
 package com.user.restaurantapp.service;
 
 import com.user.restaurantapp.dto.AddFoodDto;
+import com.user.restaurantapp.dto.FoodDto;
 import com.user.restaurantapp.dto.FoodItemDto;
 import com.user.restaurantapp.model.FoodItem;
 import com.user.restaurantapp.repository.FoodRepository;
@@ -37,7 +38,7 @@ public class FoodServiceTest {
         foodItem.setFoodName("Beans");
         foodItem.setFoodPrice(new BigDecimal(10));
 
-        FoodItemDto foodItemDto = new FoodItemDto();
+        FoodDto foodItemDto = new FoodDto();
         foodItemDto.setFoodPrice(new BigDecimal(10));
         foodItemDto.setFoodName("Beans");
 
@@ -55,7 +56,7 @@ public class FoodServiceTest {
     public void FoodService_TestBlankNameAndWrongPrice(){
         //test blank name
         //arrange
-        FoodItemDto foodItemDto = new FoodItemDto();
+        FoodDto foodItemDto = new FoodDto();
         foodItemDto.setFoodPrice(new BigDecimal(10));
 
         //act
@@ -69,7 +70,7 @@ public class FoodServiceTest {
 
         //test wrong price
         //arrange
-        FoodItemDto foodItem2 = new FoodItemDto();
+        FoodDto foodItem2 = new FoodDto();
         foodItem2.setFoodPrice(new BigDecimal(-1));
         foodItem2.setFoodName("Yam");
 

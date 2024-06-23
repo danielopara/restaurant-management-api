@@ -2,12 +2,11 @@ package com.user.restaurantapp.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity

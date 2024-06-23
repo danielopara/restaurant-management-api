@@ -2,6 +2,7 @@ package com.user.restaurantapp.controller;
 
 import com.user.restaurantapp.config.LoggingUtil;
 import com.user.restaurantapp.dto.AddFoodDto;
+import com.user.restaurantapp.dto.FoodDto;
 import com.user.restaurantapp.dto.FoodItemDto;
 import com.user.restaurantapp.service.impl.FoodServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
@@ -49,7 +50,7 @@ public class FoodController {
             examples = @ExampleObject(value = "{\"message\":\"Food added\",\"item\":{\"foodName\":\"Pizza\",\"foodPrice\":10.99}}"))),
             @ApiResponse(responseCode = "400", description = "Failed to add food item")
     })
-    ResponseEntity<?> addFood(@RequestBody FoodItemDto item, HttpServletRequest request){
+    ResponseEntity<?> addFood(@RequestBody FoodDto item, HttpServletRequest request){
         AddFoodDto addFoodDto = foodService.addFoodItem(item);
         logRequest(request);
         if(addFoodDto != null){

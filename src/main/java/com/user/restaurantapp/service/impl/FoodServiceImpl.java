@@ -1,6 +1,7 @@
 package com.user.restaurantapp.service.impl;
 
 import com.user.restaurantapp.dto.AddFoodDto;
+import com.user.restaurantapp.dto.FoodDto;
 import com.user.restaurantapp.dto.FoodItemDto;
 import com.user.restaurantapp.model.FoodItem;
 import com.user.restaurantapp.repository.FoodRepository;
@@ -30,9 +31,19 @@ public class FoodServiceImpl implements FoodService {
 
 //    public void logInfo()
 
+//    AddFoodDto isFoodNameBlank(String foodName){
+//        AddFoodDto responseDto = new AddFoodDto();
+//        if (StringUtils.isBlank(foodName)) {
+//            responseDto.setMessage("Failed to add food");
+//            responseDto.setItem("Food name cannot be blank");
+//            logger.warn("Failed to add food: Food name is blank");
+//            return responseDto;
+//        }
+//
+//    }
+
     @Override
-    public AddFoodDto addFoodItem(FoodItemDto item) {
-        try{
+    public AddFoodDto addFoodItem(FoodDto item) {
             AddFoodDto responseDto  = new AddFoodDto();
             FoodItem newFoodItem = new FoodItem();
 
@@ -43,14 +54,21 @@ public class FoodServiceImpl implements FoodService {
                 return responseDto;
             }
 
-            if (item.getFoodPrice().compareTo(BigDecimal.ZERO) <= 0) {
-                responseDto.setMessage("Failed to add food");
-                responseDto.setItem("Food price must be greater than zero");
-                logger.warn("Failed to add food: Invalid food price");
-                return responseDto;
-            }
+//            if(isFoodNameBlank(item.getFoodName())){
+//                responseDto.setMessage("Failed to add food");
+//                responseDto.setItem("Food name cannot be blank");
+//                logger.warn("Failed to add food: Food name is blank");
+//            };
 
-            Map<String, Object> foodDetails = new HashMap<>();
+        if (item.getFoodPrice().compareTo(BigDecimal.ZERO) <= 0) {
+            responseDto.setMessage("Failed to add food");
+            responseDto.setItem("Food price must be greater than zero");
+            logger.warn("Failed to add food: Invalid food price");
+            return responseDto;
+        }
+
+
+        Map<String, Object> foodDetails = new HashMap<>();
             foodDetails.put("foodName", item.getFoodName());
             foodDetails.put("foodPrice", item.getFoodPrice());
 
@@ -67,9 +85,6 @@ public class FoodServiceImpl implements FoodService {
                 logger.error("Failed to add food: {}" , e.getMessage());
             }
             return responseDto;
-        } catch (Exception e){
-            throw new RuntimeException("Failed to add food");
-        }
 
     }
 
