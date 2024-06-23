@@ -150,3 +150,4 @@ List of constraint violations:[
 2024-06-23 18:31:49.068 [http-nio-2002-exec-6] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
 2024-06-23 18:37:44.103 [http-nio-2002-exec-2] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
 2024-06-23 18:46:41.755 [http-nio-2002-exec-2] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-06-23 18:52:10.762 [http-nio-2002-exec-7] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Pap 100

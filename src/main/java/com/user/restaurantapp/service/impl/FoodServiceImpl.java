@@ -19,6 +19,8 @@ import javax.swing.*;
 import java.math.BigDecimal;
 import java.util.*;
 
+import static org.apache.commons.lang3.StringUtils.isBlank;
+
 
 @Service
 @Slf4j
@@ -29,40 +31,42 @@ public class FoodServiceImpl implements FoodService {
         this.foodRepository = foodRepository;
     }
 
-//    public void logInfo()
 
-//    AddFoodDto isFoodNameBlank(String foodName){
-//        AddFoodDto responseDto = new AddFoodDto();
-//        if (StringUtils.isBlank(foodName)) {
-//            responseDto.setMessage("Failed to add food");
-//            responseDto.setItem("Food name cannot be blank");
-//            logger.warn("Failed to add food: Food name is blank");
-//            return responseDto;
-//        }
-//
-//    }
+
+    private boolean isFoodNameBlank(String foodName) {
+        return isBlank(foodName);
+    }
+
+    private void setResponseForInvalidInput(AddFoodDto responseDto, String errorMessage) {
+        responseDto.setMessage("Failed to add food");
+        responseDto.setItem(errorMessage);
+    }
+
+    private boolean isValidFoodPrice(BigDecimal foodPrice) {
+        return foodPrice.compareTo(BigDecimal.ZERO) > 0;
+    }
+
+    private void setResponseForFailure(AddFoodDto responseDto, Exception e) {
+        responseDto.setMessage("Failed to add food");
+        responseDto.setItem("An error occurred while saving food item");
+        logger.error("Failed to add food: {}", e.getMessage());
+    }
+
+
 
     @Override
     public AddFoodDto addFoodItem(FoodDto item) {
             AddFoodDto responseDto  = new AddFoodDto();
             FoodItem newFoodItem = new FoodItem();
 
-            if (StringUtils.isBlank(item.getFoodName())) {
-                responseDto.setMessage("Failed to add food");
-                responseDto.setItem("Food name cannot be blank");
-                logger.warn("Failed to add food: Food name is blank");
-                return responseDto;
-            }
+        if (isFoodNameBlank(item.getFoodName())) {
+            setResponseForInvalidInput(responseDto, "Food name cannot be blank");
+            logger.warn("Failed to add food: Food name is blank");
+            return responseDto;
+        }
 
-//            if(isFoodNameBlank(item.getFoodName())){
-//                responseDto.setMessage("Failed to add food");
-//                responseDto.setItem("Food name cannot be blank");
-//                logger.warn("Failed to add food: Food name is blank");
-//            };
-
-        if (item.getFoodPrice().compareTo(BigDecimal.ZERO) <= 0) {
-            responseDto.setMessage("Failed to add food");
-            responseDto.setItem("Food price must be greater than zero");
+        if (!isValidFoodPrice(item.getFoodPrice())) {
+            setResponseForInvalidInput(responseDto, "Food price must be greater than zero");
             logger.warn("Failed to add food: Invalid food price");
             return responseDto;
         }
@@ -80,9 +84,7 @@ public class FoodServiceImpl implements FoodService {
                 foodRepository.save(newFoodItem);
                 logger.info("Food added: {} {}" , item.getFoodName() , item.getFoodPrice());
             } catch (Exception e) {
-                responseDto.setMessage("Failed to add food");
-                responseDto.setItem("An error occurred while saving food item");
-                logger.error("Failed to add food: {}" , e.getMessage());
+                setResponseForFailure(responseDto, e);
             }
             return responseDto;
 
@@ -115,7 +117,7 @@ public class FoodServiceImpl implements FoodService {
     }
 
     @Override
-    public AddFoodDto updateFoodItem(Long id, FoodItemDto item) {
+    public AddFoodDto updateFoodItem(Long id, FoodDto item) {
         AddFoodDto responseDto = new AddFoodDto();
 
         Optional<FoodItem> foodId = foodRepository.findById(id);

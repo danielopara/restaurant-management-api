@@ -11,7 +11,7 @@ public interface FoodService {
 //    FoodItem
     AddFoodDto addFoodItem(FoodDto item);
     List<FoodItemDto> getFoodItems( int pageNumber, int pageSize, String sortBy, SortOrder sortOrder);
-    AddFoodDto updateFoodItem(Long id, FoodItemDto item);
+    AddFoodDto updateFoodItem(Long id, FoodDto item);
     FoodItemDto getFoodByName(String foodName);
     String deleteFoodItemById(Long id);
 }

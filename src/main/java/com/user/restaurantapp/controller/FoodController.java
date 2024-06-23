@@ -90,7 +90,7 @@ public class FoodController {
                     examples = @ExampleObject(value = "[{\"foodName\":\"Pizza\",\"foodPrice\":10.99}"))),
             @ApiResponse(responseCode = "400", description = "Failed updating food details")
     })
-    ResponseEntity<?> updatingFood(@PathVariable Long id, @RequestBody FoodItemDto item, HttpServletRequest request){
+    ResponseEntity<?> updatingFood(@PathVariable Long id, @RequestBody FoodDto item, HttpServletRequest request){
         String requestURI = request.getRequestURI();
         logRequest(request);
         AddFoodDto addFoodDto = foodService.updateFoodItem(id, item);
