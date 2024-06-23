@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @DataJpaTest
-@AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
+//@AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
 public class FoodRepositoryTest {
 
     @Autowired

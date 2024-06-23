@@ -9,7 +9,6 @@ import io.micrometer.common.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -18,7 +17,6 @@ import org.springframework.stereotype.Service;
 import javax.swing.*;
 import java.math.BigDecimal;
 import java.util.*;
-
 
 
 @Service
@@ -34,41 +32,45 @@ public class FoodServiceImpl implements FoodService {
 
     @Override
     public AddFoodDto addFoodItem(FoodItemDto item) {
-        AddFoodDto responseDto  = new AddFoodDto();
-        FoodItem newFoodItem = new FoodItem();
+        try{
+            AddFoodDto responseDto  = new AddFoodDto();
+            FoodItem newFoodItem = new FoodItem();
 
+            if (StringUtils.isBlank(item.getFoodName())) {
+                responseDto.setMessage("Failed to add food");
+                responseDto.setItem("Food name cannot be blank");
+                logger.warn("Failed to add food: Food name is blank");
+                return responseDto;
+            }
 
-        if (StringUtils.isBlank(item.getFoodName())) {
-            responseDto.setMessage("Failed to add food");
-            responseDto.setItem("Food name cannot be blank");
-            logger.warn("Failed to add food: Food name is blank");
+            if (item.getFoodPrice().compareTo(BigDecimal.ZERO) <= 0) {
+                responseDto.setMessage("Failed to add food");
+                responseDto.setItem("Food price must be greater than zero");
+                logger.warn("Failed to add food: Invalid food price");
+                return responseDto;
+            }
+
+            Map<String, Object> foodDetails = new HashMap<>();
+            foodDetails.put("foodName", item.getFoodName());
+            foodDetails.put("foodPrice", item.getFoodPrice());
+
+            responseDto.setMessage("Food added");
+            responseDto.setItem(foodDetails);
+            try {
+                newFoodItem.setFoodName(item.getFoodName());
+                newFoodItem.setFoodPrice(item.getFoodPrice());
+                foodRepository.save(newFoodItem);
+                logger.info("Food added: {} {}" , item.getFoodName() , item.getFoodPrice());
+            } catch (Exception e) {
+                responseDto.setMessage("Failed to add food");
+                responseDto.setItem("An error occurred while saving food item");
+                logger.error("Failed to add food: {}" , e.getMessage());
+            }
             return responseDto;
+        } catch (Exception e){
+            throw new RuntimeException("Failed to add food");
         }
 
-        if (item.getFoodPrice().compareTo(BigDecimal.ZERO) <= 0) {
-            responseDto.setMessage("Failed to add food");
-            responseDto.setItem("Food price must be greater than zero");
-            logger.warn("Failed to add food: Invalid food price");
-            return responseDto;
-        }
-
-        Map<String, Object> foodDetails = new HashMap<>();
-        foodDetails.put("foodName", item.getFoodName());
-        foodDetails.put("foodPrice", item.getFoodPrice());
-
-        responseDto.setMessage("Food added");
-        responseDto.setItem(foodDetails);
-        try {
-            newFoodItem.setFoodName(item.getFoodName());
-            newFoodItem.setFoodPrice(item.getFoodPrice());
-            foodRepository.save(newFoodItem);
-            logger.info("Food added: {} {}" , item.getFoodName() , item.getFoodPrice());
-        } catch (Exception e) {
-            responseDto.setMessage("Failed to add food");
-            responseDto.setItem("An error occurred while saving food item");
-            logger.error("Failed to add food: {}" , e.getMessage());
-        }
-        return responseDto;
     }
 
     @Override

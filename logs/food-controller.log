@@ -124,3 +124,7 @@
 2024-05-11 22:47:28.520 [http-nio-2002-exec-8] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/add-food
 2024-05-11 22:47:32.525 [http-nio-2002-exec-9] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food
 2024-05-11 23:25:34.350 [http-nio-2002-exec-6] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/add-food
+2024-06-13 09:10:01.551 [http-nio-2002-exec-5] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food
+2024-06-13 09:10:16.890 [http-nio-2002-exec-6] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/rice
+2024-06-13 09:10:17.139 [http-nio-2002-exec-6] ERROR c.u.r.controller.FoodController - Food not found 400 BAD_REQUEST 
+ Endpoint :/api/v1/food/rice

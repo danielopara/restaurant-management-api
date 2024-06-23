@@ -2,14 +2,18 @@ package com.user.restaurantapp.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
+
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Random;
 
 @Entity
 @Table(name = "orders")
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +24,7 @@ public class Order {
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
     @JsonManagedReference
+    @ToString.Exclude
     private List<OrderedItems> orderList;
     private BigDecimal totalPrice;
 

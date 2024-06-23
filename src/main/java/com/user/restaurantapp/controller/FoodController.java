@@ -25,6 +25,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("api/v1/food")
 @Tag(name = "Food Service", description = "Services that belongs to Food items management")
+@CrossOrigin(origins = "*")
 public class FoodController {
     private final FoodServiceImpl foodService;
     private static final Logger logger = LoggerFactory.getLogger(FoodController.class);

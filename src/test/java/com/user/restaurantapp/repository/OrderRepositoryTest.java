@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @DataJpaTest
-@AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
+//@AutoConfigureTestDatabase(connection = EmbeddedDatabaseConnection.H2)
 public class OrderRepositoryTest {
 
     @Autowired

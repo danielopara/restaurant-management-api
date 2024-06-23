@@ -12,6 +12,8 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
+@RequiredArgsConstructor
 public class FoodItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
