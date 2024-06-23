@@ -93,26 +93,30 @@ public class FoodServiceImpl implements FoodService {
     @Override
 //    @Cacheable(value = "FoodItemDto", key = "#pageNumber + '|' + #pageSize + '|' + #sortBy + '|' + #sortOrder")
     public List<FoodItemDto> getFoodItems( int pageNumber, int pageSize,String sortBy, SortOrder sortOrder) {
-        Sort sort;
-
-        switch (sortOrder) {
-            case ASCENDING:
-                sort = Sort.by(sortBy).ascending();
-                break;
-            case DESCENDING:
-                sort = Sort.by(sortBy).descending();
-                break;
-            default:
-                sort = Sort.by(sortBy);
-        }
-        PageRequest page = PageRequest.of(pageNumber, pageSize, sort);
-        Page<FoodItem> allFoodItems = foodRepository.findAll(page);
         List<FoodItemDto> foodItemDtos = new ArrayList<>();
-        for (FoodItem foodItem : allFoodItems){
+        try{
+            Sort sort;
+            switch (sortOrder) {
+                case ASCENDING:
+                    sort = Sort.by(sortBy).ascending();
+                    break;
+                case DESCENDING:
+                    sort = Sort.by(sortBy).descending();
+                    break;
+                default:
+                    sort = Sort.by(sortBy);
+            }
+            PageRequest page = PageRequest.of(pageNumber, pageSize, sort);
+            Page<FoodItem> allFoodItems = foodRepository.findAll(page);
+
+            for (FoodItem foodItem : allFoodItems){
                 foodItemDtos.add(mapToFoodItemDto(foodItem));
+            }
+            logger.info("Retrieved all foods");
+            System.out.println("gotten from db");
+        } catch (Exception e){
+            logger.error("Error retrieving food items: ", e);
         }
-        logger.info("Retrieved all foods");
-        System.out.println("gotten from db");
         return foodItemDtos;
     }
 
@@ -143,7 +147,6 @@ public class FoodServiceImpl implements FoodService {
             responseDto.setMessage("Food not found else food details did not update");
             responseDto.setItem(null);
         }
-
 
         return responseDto;
 
