@@ -7,7 +7,7 @@ The Restaurant App API is designed to manage food items and orders within a rest
 ## Requirements
 
 - Java 8 or higher
-- Spring Boot 3.x
+- Spring  3.x
 - Maven
 - A relational database (MySQL)
 

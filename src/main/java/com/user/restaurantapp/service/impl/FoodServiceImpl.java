@@ -65,6 +65,11 @@ public class FoodServiceImpl implements FoodService {
             return responseDto;
         }
 
+        if(item.getFoodPrice() == null){
+            setResponseForInvalidInput(responseDto, "food price cannot be null");
+            return responseDto;
+        }
+
         if (!isValidFoodPrice(item.getFoodPrice())) {
             setResponseForInvalidInput(responseDto, "Food price must be greater than zero");
             logger.warn("Failed to add food: Invalid food price");

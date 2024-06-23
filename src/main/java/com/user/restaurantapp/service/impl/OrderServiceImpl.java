@@ -16,9 +16,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.Hibernate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -48,7 +50,7 @@ public class OrderServiceImpl implements OrderService {
 //                        ));
 
                 Optional<FoodItem> foodItemOptional = foodRepository.findByFoodName(orderItem.getFoodName());
-                if (!foodItemOptional.isPresent()) {
+                if (foodItemOptional.isEmpty()) {
                     logger.warn("Food item not found: {}", orderItem.getFoodName());
                     return new BaseResponse(
                             HttpServletResponse.SC_OK,
@@ -109,23 +111,27 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public BaseResponse allOrders() {
-//        try{
+        try {
             List<Order> orders = orderRepository.findAll();
+            for (Order order : orders) {
+                Hibernate.initialize(order.getOrderList());
+            }
             return new BaseResponse(
                     HttpServletResponse.SC_OK,
                     "Orders",
                     orders,
                     null
             );
-//        } catch (Exception e){
-//            return new BaseResponse(
-//                    HttpServletResponse.SC_BAD_REQUEST,
-//                    "ERROR",
-//                    null,
-//                    null
-//            );
-//        }
+        } catch (Exception e) {
+            return new BaseResponse(
+                    HttpServletResponse.SC_BAD_REQUEST,
+                    "ERROR",
+                    null,
+                    e.getMessage()
+            );
+        }
     }
 }
 @Data
