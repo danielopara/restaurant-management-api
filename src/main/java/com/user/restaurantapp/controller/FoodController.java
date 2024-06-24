@@ -73,7 +73,6 @@ public class FoodController {
                               @RequestParam(defaultValue = "id") String sortBy,
                               @RequestParam(defaultValue = "ASCENDING") SortOrder sortOrder,
                               HttpServletRequest request){
-        String requestURI = request.getRequestURI();
         logRequest(request);
         List<FoodItemDto> foodItems = foodService.getFoodItems(pageNumber, pageSize, sortBy, sortOrder);
         if(foodItems != null){
@@ -91,7 +90,6 @@ public class FoodController {
             @ApiResponse(responseCode = "400", description = "Failed updating food details")
     })
     ResponseEntity<?> updatingFood(@PathVariable Long id, @RequestBody FoodDto item, HttpServletRequest request){
-        String requestURI = request.getRequestURI();
         logRequest(request);
         AddFoodDto addFoodDto = foodService.updateFoodItem(id, item);
         if(addFoodDto != null){
@@ -128,7 +126,6 @@ public class FoodController {
     })
     @DeleteMapping("/delete-food/{id}")
     ResponseEntity<?> delete_food (@PathVariable Long id, HttpServletRequest request) {
-        String requestURI = request.getRequestURI();
         logRequest(request);
         String foodItem = foodService.deleteFoodItemById(id);
         if(foodItem != null){
@@ -140,9 +137,7 @@ public class FoodController {
     }
 
     static class ErrorResponse{
-        private String message;
         public ErrorResponse(String message) {
-            this.message = message;
         }
     }
 }

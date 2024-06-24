@@ -6,6 +6,7 @@ import com.user.restaurantapp.dto.FoodItemDto;
 import com.user.restaurantapp.model.FoodItem;
 import com.user.restaurantapp.repository.FoodRepository;
 import com.user.restaurantapp.service.FoodService;
+import com.user.restaurantapp.validation.FoodValidation;
 import io.micrometer.common.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -59,7 +60,7 @@ public class FoodServiceImpl implements FoodService {
             AddFoodDto responseDto  = new AddFoodDto();
             FoodItem newFoodItem = new FoodItem();
 
-        if (isFoodNameBlank(item.getFoodName())) {
+        if (FoodValidation.isFoodNameBlank(item.getFoodName())) {
             setResponseForInvalidInput(responseDto, "Food name cannot be blank");
             logger.warn("Failed to add food: Food name is blank");
             return responseDto;
@@ -70,12 +71,11 @@ public class FoodServiceImpl implements FoodService {
             return responseDto;
         }
 
-        if (!isValidFoodPrice(item.getFoodPrice())) {
+        if (!FoodValidation.isValidFoodPrice(item.getFoodPrice())) {
             setResponseForInvalidInput(responseDto, "Food price must be greater than zero");
             logger.warn("Failed to add food: Invalid food price");
             return responseDto;
         }
-
 
         Map<String, Object> foodDetails = new HashMap<>();
             foodDetails.put("foodName", item.getFoodName());

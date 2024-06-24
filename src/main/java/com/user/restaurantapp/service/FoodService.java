@@ -1,17 +1,10 @@
 package com.user.restaurantapp.service;
 
-import com.user.restaurantapp.dto.AddFoodDto;
-import com.user.restaurantapp.dto.FoodDto;
-import com.user.restaurantapp.dto.FoodItemDto;
+import com.user.restaurantapp.service.foodInterface.FoodCreationService;
+import com.user.restaurantapp.service.foodInterface.FoodModificationService;
+import com.user.restaurantapp.service.foodInterface.FoodRetrievalService;
 
-import javax.swing.*;
-import java.util.List;
 
-public interface FoodService {
-//    FoodItem
-    AddFoodDto addFoodItem(FoodDto item);
-    List<FoodItemDto> getFoodItems( int pageNumber, int pageSize, String sortBy, SortOrder sortOrder);
-    AddFoodDto updateFoodItem(Long id, FoodDto item);
-    FoodItemDto getFoodByName(String foodName);
-    String deleteFoodItemById(Long id);
+public interface FoodService extends FoodCreationService, FoodRetrievalService, FoodModificationService {
+
 }

@@ -28,6 +28,7 @@ public class Order {
     private List<OrderedItems> orderList;
     private BigDecimal totalPrice;
 
+    //for the reference number
     public String generateRandomString(){
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         int length = 10;
