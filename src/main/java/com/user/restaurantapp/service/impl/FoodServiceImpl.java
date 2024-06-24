@@ -34,18 +34,11 @@ public class FoodServiceImpl implements FoodService {
 
 
 
-    private boolean isFoodNameBlank(String foodName) {
-        return isBlank(foodName);
-    }
-
     private void setResponseForInvalidInput(AddFoodDto responseDto, String errorMessage) {
         responseDto.setMessage("Failed to add food");
         responseDto.setItem(errorMessage);
     }
 
-    private boolean isValidFoodPrice(BigDecimal foodPrice) {
-        return foodPrice.compareTo(BigDecimal.ZERO) > 0;
-    }
 
     private void setResponseForFailure(AddFoodDto responseDto, Exception e) {
         responseDto.setMessage("Failed to add food");
