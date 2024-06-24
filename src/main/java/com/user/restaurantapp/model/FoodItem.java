@@ -12,12 +12,12 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 public class FoodItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
     private String foodName;
-    @NonNull
     private BigDecimal foodPrice;
 }

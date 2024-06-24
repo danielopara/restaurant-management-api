@@ -53,3 +53,111 @@
 2024-04-18 14:09:23.827 [http-nio-2002-exec-7] INFO  c.u.r.service.impl.FoodServiceImpl - Food Item: Beanswith price: 950.00 has been deleted
 2024-04-18 14:10:04.860 [http-nio-2002-exec-9] ERROR c.u.r.service.impl.FoodServiceImpl - Failed to delete Food Item: " + foodItem.get().getFoodName()
 "with price: " + foodItem.get().getFoodPrice().toString()
+2024-05-02 09:00:09.731 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-05-02 09:00:09.732 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods from cache
+2024-05-03 15:59:26.330 [http-nio-2002-exec-9] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-05-03 15:59:26.331 [http-nio-2002-exec-9] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods from cache
+2024-05-08 09:58:53.052 [http-nio-2002-exec-4] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-05-11 22:47:15.157 [http-nio-2002-exec-2] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-05-11 22:47:28.520 [http-nio-2002-exec-8] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 100
+2024-05-11 22:47:32.551 [http-nio-2002-exec-9] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-05-11 23:25:34.350 [http-nio-2002-exec-6] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: beans 10
+2024-05-12 11:02:18.465 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 10
+2024-05-12 11:12:09.807 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 10
+2024-05-12 15:50:47.308 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-05-12 15:53:17.841 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-05-12 15:57:17.711 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-05-12 15:58:05.183 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-05-12 16:01:04.095 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-05-12 16:03:04.365 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-05-12 16:07:16.172 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-05-12 16:10:36.368 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-05-12 16:15:52.725 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-05-12 16:15:52.725 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-05-12 16:43:52.937 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-06-05 14:40:18.726 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 10
+2024-06-05 14:40:18.765 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-06-05 14:40:18.766 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-06-05 14:40:18.805 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-06-10 14:35:11.337 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 10
+2024-06-10 14:35:11.636 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-06-10 14:35:11.637 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-06-10 14:35:11.663 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-06-10 14:39:22.307 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 10
+2024-06-10 14:39:22.516 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-06-10 14:39:22.517 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-06-10 14:39:22.559 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-06-10 14:53:40.059 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 10
+2024-06-10 14:53:40.224 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-06-10 14:53:40.225 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-06-10 14:53:40.254 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-06-10 14:59:52.237 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 10
+2024-06-10 14:59:52.577 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-06-10 14:59:52.585 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-06-10 14:59:52.673 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-06-10 15:03:37.470 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 10
+2024-06-10 15:03:37.655 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-06-10 15:03:37.657 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-06-10 15:03:37.682 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-06-10 15:08:33.019 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 10
+2024-06-10 15:08:34.355 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-06-10 15:08:34.357 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-06-10 15:08:34.401 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-06-10 16:21:05.173 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 10
+2024-06-10 16:21:05.388 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-06-10 16:21:05.390 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-06-10 16:21:05.413 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-06-13 09:10:02.435 [http-nio-2002-exec-5] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-06-13 09:10:17.139 [http-nio-2002-exec-6] WARN  c.u.r.service.impl.FoodServiceImpl - No food item found with name: rice
+2024-06-13 09:14:56.483 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 10
+2024-06-13 09:14:56.737 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-06-13 09:14:56.738 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-06-13 09:14:56.783 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-06-19 11:49:28.342 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 10
+2024-06-19 11:49:28.553 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-06-19 11:49:28.556 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-06-19 11:49:28.586 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-06-23 18:24:01.285 [http-nio-2002-exec-7] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-06-23 18:24:01.286 [http-nio-2002-exec-7] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-06-23 18:24:11.207 [http-nio-2002-exec-9] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-06-23 18:24:11.368 [http-nio-2002-exec-9] ERROR c.u.r.service.impl.FoodServiceImpl - Failed to add food: Validation failed for classes [com.user.restaurantapp.model.FoodItem] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='must not be blank', propertyPath=foodName, rootBeanClass=class com.user.restaurantapp.model.FoodItem, messageTemplate='{jakarta.validation.constraints.NotBlank.message}'}
+]
+2024-06-23 18:29:02.960 [http-nio-2002-exec-1] ERROR c.u.r.service.impl.FoodServiceImpl - Failed to add food: Validation failed for classes [com.user.restaurantapp.model.FoodItem] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='must not be blank', propertyPath=foodName, rootBeanClass=class com.user.restaurantapp.model.FoodItem, messageTemplate='{jakarta.validation.constraints.NotBlank.message}'}
+]
+2024-06-23 18:29:15.851 [http-nio-2002-exec-3] ERROR c.u.r.service.impl.FoodServiceImpl - Failed to add food: Validation failed for classes [com.user.restaurantapp.model.FoodItem] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='must not be blank', propertyPath=foodName, rootBeanClass=class com.user.restaurantapp.model.FoodItem, messageTemplate='{jakarta.validation.constraints.NotBlank.message}'}
+]
+2024-06-23 18:29:31.414 [http-nio-2002-exec-1] ERROR c.u.r.service.impl.FoodServiceImpl - Failed to add food: Validation failed for classes [com.user.restaurantapp.model.FoodItem] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='must not be blank', propertyPath=foodName, rootBeanClass=class com.user.restaurantapp.model.FoodItem, messageTemplate='{jakarta.validation.constraints.NotBlank.message}'}
+]
+2024-06-23 18:29:40.537 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - MoiMoi food name is not blank
+2024-06-23 18:29:40.537 [http-nio-2002-exec-3] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-06-23 18:29:40.666 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: MoiMoi 10
+2024-06-23 18:30:37.670 [http-nio-2002-exec-1] ERROR c.u.r.service.impl.FoodServiceImpl - Failed to add food: Validation failed for classes [com.user.restaurantapp.model.FoodItem] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='must not be blank', propertyPath=foodName, rootBeanClass=class com.user.restaurantapp.model.FoodItem, messageTemplate='{jakarta.validation.constraints.NotBlank.message}'}
+]
+2024-06-23 18:30:47.830 [http-nio-2002-exec-3] ERROR c.u.r.service.impl.FoodServiceImpl - Failed to add food: Validation failed for classes [com.user.restaurantapp.model.FoodItem] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='must not be blank', propertyPath=foodName, rootBeanClass=class com.user.restaurantapp.model.FoodItem, messageTemplate='{jakarta.validation.constraints.NotBlank.message}'}
+]
+2024-06-23 18:31:49.068 [http-nio-2002-exec-6] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-06-23 18:37:44.103 [http-nio-2002-exec-2] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-06-23 18:46:41.755 [http-nio-2002-exec-2] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-06-23 18:52:10.762 [http-nio-2002-exec-7] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Pap 100
+2024-06-23 19:01:42.839 [http-nio-2002-exec-1] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-06-23 19:03:11.595 [http-nio-2002-exec-3] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-06-23 19:04:38.238 [http-nio-2002-exec-5] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Agidi 10
+2024-06-23 19:23:33.572 [http-nio-2002-exec-2] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-06-23 23:16:16.159 [http-nio-2002-exec-6] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-06-23 23:16:33.815 [http-nio-2002-exec-8] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-06-23 23:16:40.053 [http-nio-2002-exec-10] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-06-23 23:16:45.974 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-06-23 23:17:09.707 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=null, foodName=MoiMoi, foodPrice=10.00)
+2024-06-24 09:58:12.663 [http-nio-2002-exec-1] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
