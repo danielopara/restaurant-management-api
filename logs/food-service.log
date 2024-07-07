@@ -161,3 +161,11 @@ List of constraint violations:[
 2024-06-23 23:16:45.974 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
 2024-06-23 23:17:09.707 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=null, foodName=MoiMoi, foodPrice=10.00)
 2024-06-24 09:58:12.663 [http-nio-2002-exec-1] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-06-25 12:03:56.906 [http-nio-2002-exec-2] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods
+2024-06-27 09:49:51.797 [http-nio-2002-exec-6] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 3
+2024-07-06 23:10:57.241 [http-nio-2002-exec-2] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 3
+2024-07-06 23:15:48.926 [http-nio-2002-exec-5] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=null, foodName=MoiMoi, foodPrice=10.00)
+2024-07-06 23:19:43.222 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=null, foodName=MoiMoi, foodPrice=10.00)
+2024-07-06 23:19:46.509 [http-nio-2002-exec-2] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 3
+2024-07-06 23:21:09.423 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodDto(foodName=MoiMoi, foodPrice=10.00)
+2024-07-06 23:22:38.632 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=1, foodName=MoiMoi, foodPrice=10.00)

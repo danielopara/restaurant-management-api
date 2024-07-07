@@ -5,6 +5,7 @@ import com.user.restaurantapp.dto.FoodDto;
 import com.user.restaurantapp.dto.FoodItemDto;
 import com.user.restaurantapp.model.FoodItem;
 import com.user.restaurantapp.repository.FoodRepository;
+import com.user.restaurantapp.response.SetResponse;
 import com.user.restaurantapp.service.FoodService;
 import com.user.restaurantapp.validation.FoodValidation;
 import io.micrometer.common.util.StringUtils;
@@ -20,7 +21,6 @@ import javax.swing.*;
 import java.math.BigDecimal;
 import java.util.*;
 
-import static org.apache.commons.lang3.StringUtils.isBlank;
 
 
 @Service
@@ -33,39 +33,24 @@ public class FoodServiceImpl implements FoodService {
     }
 
 
-
-    private void setResponseForInvalidInput(AddFoodDto responseDto, String errorMessage) {
-        responseDto.setMessage("Failed to add food");
-        responseDto.setItem(errorMessage);
-    }
-
-
-    private void setResponseForFailure(AddFoodDto responseDto, Exception e) {
-        responseDto.setMessage("Failed to add food");
-        responseDto.setItem("An error occurred while saving food item");
-        logger.error("Failed to add food: {}", e.getMessage());
-    }
-
-
-
     @Override
     public AddFoodDto addFoodItem(FoodDto item) {
             AddFoodDto responseDto  = new AddFoodDto();
             FoodItem newFoodItem = new FoodItem();
 
         if (FoodValidation.isFoodNameBlank(item.getFoodName())) {
-            setResponseForInvalidInput(responseDto, "Food name cannot be blank");
+            SetResponse.setResponseForInvalidInput(responseDto, "Food name cannot be blank");
             logger.warn("Failed to add food: Food name is blank");
             return responseDto;
         }
 
         if(item.getFoodPrice() == null){
-            setResponseForInvalidInput(responseDto, "food price cannot be null");
+            SetResponse.setResponseForInvalidInput(responseDto, "food price cannot be null");
             return responseDto;
         }
 
         if (!FoodValidation.isValidFoodPrice(item.getFoodPrice())) {
-            setResponseForInvalidInput(responseDto, "Food price must be greater than zero");
+            SetResponse.setResponseForInvalidInput(responseDto, "Food price must be greater than zero");
             logger.warn("Failed to add food: Invalid food price");
             return responseDto;
         }
@@ -82,7 +67,7 @@ public class FoodServiceImpl implements FoodService {
                 foodRepository.save(newFoodItem);
                 logger.info("Food added: {} {}" , item.getFoodName() , item.getFoodPrice());
             } catch (Exception e) {
-                setResponseForFailure(responseDto, e);
+                SetResponse.setResponseForFailure(responseDto, e);
             }
             return responseDto;
 
@@ -90,8 +75,8 @@ public class FoodServiceImpl implements FoodService {
 
     @Override
 //    @Cacheable(value = "FoodItemDto", key = "#pageNumber + '|' + #pageSize + '|' + #sortBy + '|' + #sortOrder")
-    public List<FoodItemDto> getFoodItems( int pageNumber, int pageSize,String sortBy, SortOrder sortOrder) {
-        List<FoodItemDto> foodItemDtos = new ArrayList<>();
+    public List<FoodDto> getFoodItems( int pageNumber, int pageSize,String sortBy, SortOrder sortOrder) {
+        List<FoodDto> foodItemDtos = new ArrayList<>();
         try{
             Sort sort;
             switch (sortOrder) {
@@ -110,7 +95,8 @@ public class FoodServiceImpl implements FoodService {
             for (FoodItem foodItem : allFoodItems){
                 foodItemDtos.add(mapToFoodItemDto(foodItem));
             }
-            logger.info("Retrieved all foods");
+            long count = foodRepository.count();
+            logger.info("Retrieved all foods {}", count);
             System.out.println("gotten from db");
         } catch (Exception e){
             logger.error("Error retrieving food items: ", e);
@@ -157,13 +143,15 @@ public class FoodServiceImpl implements FoodService {
         if (foodItemOptional.isEmpty()) {
             log.warn("No food item found with name: {}", foodName);
             return null;
-        } else {
-            FoodItem foodItem = foodItemOptional.get();
+        }
+
+        FoodItem foodItem = foodItemOptional.get();
+            responseDto.setId(foodItem.getId());
             responseDto.setFoodName(foodItem.getFoodName());
             responseDto.setFoodPrice(foodItem.getFoodPrice());
             logger.info("Got {}" , responseDto);
             return responseDto;
-        }
+
     }
 
     @Override
@@ -181,9 +169,8 @@ public class FoodServiceImpl implements FoodService {
     }
 
 
-    private FoodItemDto mapToFoodItemDto(FoodItem foodItem) {
-        FoodItemDto foodItemDto = new FoodItemDto();
-        foodItemDto.setId(foodItem.getId());
+    private FoodDto mapToFoodItemDto(FoodItem foodItem) {
+        FoodDto foodItemDto = new FoodDto();
         foodItemDto.setFoodName(foodItem.getFoodName());
         foodItemDto.setFoodPrice(foodItem.getFoodPrice());
         return foodItemDto;
