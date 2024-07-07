@@ -106,7 +106,7 @@ public class FoodServiceTest {
         when(foodRepository.findAll(PageRequest.of(pageNumber, pageSize, Sort.by(sortBy)))).thenReturn(foodItemsPage);
 
         // Act
-        List<FoodItemDto> foodItemDtos = foodService.getFoodItems(pageNumber, pageSize, sortBy, sortOrder);
+        List<FoodDto> foodItemDtos = foodService.getFoodItems(pageNumber, pageSize, sortBy, sortOrder);
 
         // Assert
         assertEquals(2, foodItemDtos.size());

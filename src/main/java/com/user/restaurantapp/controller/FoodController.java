@@ -1,6 +1,5 @@
 package com.user.restaurantapp.controller;
 
-import com.user.restaurantapp.config.LoggingUtil;
 import com.user.restaurantapp.dto.AddFoodDto;
 import com.user.restaurantapp.dto.FoodDto;
 import com.user.restaurantapp.dto.FoodItemDto;
@@ -74,7 +73,7 @@ public class FoodController {
                               @RequestParam(defaultValue = "ASCENDING") SortOrder sortOrder,
                               HttpServletRequest request){
         logRequest(request);
-        List<FoodItemDto> foodItems = foodService.getFoodItems(pageNumber, pageSize, sortBy, sortOrder);
+        List<FoodDto> foodItems = foodService.getFoodItems(pageNumber, pageSize, sortBy, sortOrder);
         if(foodItems != null){
             return new ResponseEntity<>(foodItems, HttpStatus.OK);
         } else {
@@ -109,7 +108,6 @@ public class FoodController {
     })
     @GetMapping("/{foodName}")
     ResponseEntity<?> getFoodByFoodName(@PathVariable String foodName, HttpServletRequest request){
-        String requestURI = request.getRequestURI();
         logRequest(request);
         FoodItemDto foodItem = foodService.getFoodByName(foodName);
         if(foodItem != null){

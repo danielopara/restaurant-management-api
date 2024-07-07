@@ -9,6 +9,9 @@ import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,17 +23,30 @@ import org.springframework.web.bind.annotation.*;
 public class OrderController {
 
     private final OrderServiceImpl orderService;
+    private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
 
     public OrderController(OrderServiceImpl orderService) {
         this.orderService = orderService;
     }
+
+    private void logRequest( HttpServletRequest request) {
+        logger.info("Received a request from: {}", request.getRequestURI());
+    }
+    private void logError(HttpServletRequest request){
+        logger.error("Food not found {} \n Endpoint :{}" , HttpStatus.BAD_REQUEST , request.getRequestURI());
+    }
+
     @GetMapping("/orders")
     @Operation(method = "GET", summary = "Get all orders")
-    ResponseEntity<?> getAllOrders(){
+    ResponseEntity<?> getAllOrders(HttpServletRequest request){
+
+        logRequest(request);
+
         BaseResponse response = orderService.allOrders();
         if(response.getStatus() == HttpStatus.OK.value()){
             return new ResponseEntity<>(response, HttpStatus.OK);
         } else {
+            logger.error("failed to get orders \n Endpoint : {}", request.getRequestURI());
             return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
     }
@@ -55,11 +71,14 @@ public class OrderController {
                                     "}"))),
             @ApiResponse(responseCode = "400", description = "Failed to create order")
     })
-    ResponseEntity<?> postOrder(@RequestBody OrderDto request){
-        BaseResponse order = orderService.createOrder(request);
+    ResponseEntity<?> postOrder(@RequestBody OrderDto orderRequest, HttpServletRequest request){
+
+        logRequest(request);
+        BaseResponse order = orderService.createOrder(orderRequest);
         if (order.getStatus() == HttpStatus.OK.value()) {
             return new ResponseEntity<>(order, HttpStatus.OK);
         } else {
+            logger.error("failed to post an order \n Endpoint : {}", request.getRequestURI());
             return new ResponseEntity<>("Failed to create order", HttpStatus.BAD_REQUEST);
         }
     }

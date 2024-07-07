@@ -1,5 +1,6 @@
 package com.user.restaurantapp.response;
 
+import com.user.restaurantapp.dto.AddFoodDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,4 +15,6 @@ public class BaseResponse {
     private String description;
     private Object data;
     private Object error;
+
+
 }
