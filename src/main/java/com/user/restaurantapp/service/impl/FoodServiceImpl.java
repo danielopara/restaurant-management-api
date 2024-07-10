@@ -70,7 +70,6 @@ public class FoodServiceImpl implements FoodService {
                 SetResponse.setResponseForFailure(responseDto, e);
             }
             return responseDto;
-
     }
 
     @Override

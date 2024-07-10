@@ -13,6 +13,7 @@ import com.user.restaurantapp.dto.FoodDto;
 import com.user.restaurantapp.model.FoodItem;
 import com.user.restaurantapp.repository.FoodRepository;
 import com.user.restaurantapp.service.impl.FoodServiceImpl;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -43,6 +44,12 @@ public class FoodUpdateTest {
         foodDto.setFoodName("Updated Name");
         foodDto.setFoodPrice(BigDecimal.ONE);
     }
+
+    @AfterEach
+    public void afterEachTest() {
+        System.out.println("Test completed successfully.");
+    }
+
 
     @Test
     public void testUpdateFoodItem_FoodExists(){
