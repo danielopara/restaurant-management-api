@@ -17,7 +17,6 @@ public class FoodItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank
     private String foodName;
     private BigDecimal foodPrice;
 }

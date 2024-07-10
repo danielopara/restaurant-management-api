@@ -169,3 +169,17 @@ List of constraint violations:[
 2024-07-06 23:19:46.509 [http-nio-2002-exec-2] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 3
 2024-07-06 23:21:09.423 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodDto(foodName=MoiMoi, foodPrice=10.00)
 2024-07-06 23:22:38.632 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=1, foodName=MoiMoi, foodPrice=10.00)
+2024-07-07 17:58:37.302 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 0
+2024-07-07 17:59:37.271 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 10
+2024-07-07 18:23:16.377 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food updated from FoodItem(id=1, foodName=Updated Name, foodPrice=1) to FoodDto(foodName=Updated Name, foodPrice=1)
+2024-07-07 18:26:45.853 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food updated from FoodItem(id=1, foodName=Updated Name, foodPrice=1) to FoodDto(foodName=Updated Name, foodPrice=1)
+2024-07-07 18:29:48.419 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food updated from FoodItem(id=1, foodName=, foodPrice=1) to FoodDto(foodName=, foodPrice=1)
+2024-07-07 18:30:47.333 [main] ERROR c.u.r.service.impl.FoodServiceImpl - Food not found else food details did not update with id: 1 and FoodDto(foodName=Updated Name, foodPrice=1)
+2024-07-07 18:31:18.844 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food updated from FoodItem(id=1, foodName=, foodPrice=1) to FoodDto(foodName=, foodPrice=1)
+2024-07-07 18:35:59.875 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food updated from FoodItem(id=1, foodName=, foodPrice=1) to FoodDto(foodName=, foodPrice=1)
+2024-07-10 09:39:24.963 [http-nio-2002-exec-6] INFO  c.u.r.service.impl.FoodServiceImpl - Food updated from FoodItem(id=1, foodName=, foodPrice=10) to FoodDto(foodName=, foodPrice=10)
+2024-07-10 09:43:15.935 [http-nio-2002-exec-2] INFO  c.u.r.service.impl.FoodServiceImpl - Food updated from FoodItem(id=1, foodName=, foodPrice=10) to FoodDto(foodName=, foodPrice=10)
+2024-07-10 09:46:11.012 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 3
+2024-07-10 09:46:23.080 [http-nio-2002-exec-5] INFO  c.u.r.service.impl.FoodServiceImpl - Food updated from FoodItem(id=1, foodName=MoiMoi, foodPrice=10) to FoodDto(foodName=MoiMoi, foodPrice=10)
+2024-07-10 10:17:02.984 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food updated from FoodItem(id=1, foodName=Updated Name, foodPrice=1) to FoodDto(foodName=Updated Name, foodPrice=1)
+2024-07-10 10:19:59.502 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food updated from FoodItem(id=1, foodName=Updated Name, foodPrice=1) to FoodDto(foodName=Updated Name, foodPrice=1)

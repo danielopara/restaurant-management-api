@@ -113,10 +113,10 @@ public class FoodServiceImpl implements FoodService {
         if(foodId.isPresent()){
             FoodItem food = foodId.get();
             if(StringUtils.isBlank(item.getFoodName())){
-                food.setFoodName(food.getFoodName());
+              return new AddFoodDto("no food name", null);
             }
-            if(item.getFoodPrice().compareTo(BigDecimal.ZERO) <= 0) {
-                food.setFoodPrice(food.getFoodPrice());
+            if(item.getFoodPrice().compareTo(BigDecimal.ZERO) <  0) {
+                return new AddFoodDto("food price cannot be less than 0", null);
             }
 
             food.setFoodName(item.getFoodName());
