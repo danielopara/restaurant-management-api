@@ -13,22 +13,18 @@ import com.user.restaurantapp.dto.FoodDto;
 import com.user.restaurantapp.model.FoodItem;
 import com.user.restaurantapp.repository.FoodRepository;
 import com.user.restaurantapp.service.impl.FoodServiceImpl;
-import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.slf4j.Logger;
 
 @ExtendWith(MockitoExtension.class)
 public class FoodUpdateTest {
     @Mock
     private FoodRepository foodRepository;
 
-    @Mock
-    private Logger logger;
 
     @InjectMocks
     private FoodServiceImpl foodService;

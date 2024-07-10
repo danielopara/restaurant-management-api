@@ -183,3 +183,5 @@ List of constraint violations:[
 2024-07-10 09:46:23.080 [http-nio-2002-exec-5] INFO  c.u.r.service.impl.FoodServiceImpl - Food updated from FoodItem(id=1, foodName=MoiMoi, foodPrice=10) to FoodDto(foodName=MoiMoi, foodPrice=10)
 2024-07-10 10:17:02.984 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food updated from FoodItem(id=1, foodName=Updated Name, foodPrice=1) to FoodDto(foodName=Updated Name, foodPrice=1)
 2024-07-10 10:19:59.502 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food updated from FoodItem(id=1, foodName=Updated Name, foodPrice=1) to FoodDto(foodName=Updated Name, foodPrice=1)
+2024-07-10 10:21:23.427 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food updated from FoodItem(id=1, foodName=Updated Name, foodPrice=1) to FoodDto(foodName=Updated Name, foodPrice=1)
+2024-07-10 10:21:23.543 [main] ERROR c.u.r.service.impl.FoodServiceImpl - Food not found else food details did not update with id: 1 and FoodDto(foodName=Updated Name, foodPrice=1)
