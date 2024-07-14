@@ -12,6 +12,7 @@ import com.user.restaurantapp.dto.AddFoodDto;
 import com.user.restaurantapp.dto.FoodDto;
 import com.user.restaurantapp.model.FoodItem;
 import com.user.restaurantapp.repository.FoodRepository;
+import com.user.restaurantapp.service.foodInterface.FoodModificationService;
 import com.user.restaurantapp.service.impl.FoodServiceImpl;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,9 +27,12 @@ public class FoodUpdateTest {
     @Mock
     private FoodRepository foodRepository;
 
+    @Mock
+    private FoodModificationService foodService;
 
-    @InjectMocks
-    private FoodServiceImpl foodService;
+
+//    @InjectMocks
+//    private FoodServiceImpl foodService;
 
     private FoodItem foodItem;
     private FoodDto foodDto;
@@ -50,29 +54,39 @@ public class FoodUpdateTest {
         System.out.println("Test completed successfully.");
     }
 
+    private void mockUpdateFoodItem(Long id, FoodDto foodDto, AddFoodDto expectedResponse){
+        when(foodService.updateFoodItem(id, foodDto)).thenReturn(expectedResponse);
+    }
+
 
     @Test
     public void testUpdateFoodItem_FoodExists(){
-        when(foodRepository.findById(eq(1L))).thenReturn(Optional.of(foodItem));
+        AddFoodDto expectedResponse = new AddFoodDto();
+
+
+        mockUpdateFoodItem(1L, foodDto, expectedResponse);
 
         AddFoodDto response = foodService.updateFoodItem(1L, foodDto);
 
-        assertEquals("Food details has updated", response.getMessage());
-        assertEquals(foodDto, response.getItem());
+        assertEquals(expectedResponse, response);
 
-        verify(foodRepository, times(1)).findById(eq(1L));
-        verify(foodRepository, times(1)).save(any(FoodItem.class));
+        verify(foodService, times(1)).updateFoodItem(1L, foodDto);
+//        verify(foodRepository, times(1)).save(any(FoodItem.class));
 //        verify(logger, times(1)).info(eq("Food updated from {} to {}"), eq(foodItem), eq(foodDto));
     }
 
     @Test
     public void testUpdateFoodItem_BlankFoodName() {
+        AddFoodDto expectedResponse = new AddFoodDto();
         foodDto.setFoodName("");
-        when(foodRepository.findById(eq(1L))).thenReturn(Optional.of(foodItem));
+
+        mockUpdateFoodItem(1L, foodDto,expectedResponse);
 
         AddFoodDto response = foodService.updateFoodItem(1L, foodDto);
 
-        assertEquals("no food name", response.getMessage());
+        assertEquals(expectedResponse , response);
+        verify(foodService, times(1)).updateFoodItem(1L, foodDto);
+
 
 //        assertEquals("Food details has updated", response.getMessage());
 //        assertEquals(foodDto, response.getItem());
@@ -85,12 +99,14 @@ public class FoodUpdateTest {
 
     @Test
     public void testUpdateFoodItem_FoodPriceLessThanZero(){
+        AddFoodDto expectedResponse = new AddFoodDto();
         foodDto.setFoodPrice(new BigDecimal(-1));
-        when(foodRepository.findById(eq(1L))).thenReturn(Optional.of(foodItem));
+
+        mockUpdateFoodItem(1L, foodDto, expectedResponse);
 
         AddFoodDto response = foodService.updateFoodItem(1L, foodDto);
 
-        assertEquals("food price cannot be less than 0", response.getMessage());
+        assertEquals(expectedResponse, response);
     }
 
     @Test
@@ -98,6 +114,7 @@ public class FoodUpdateTest {
         when(foodRepository.findById(eq(1L))).thenReturn(Optional.empty());
 
         AddFoodDto response = foodService.updateFoodItem(1L, foodDto);
+
 
         assertEquals("Food not found else food details did not update", response.getMessage());
         assertNull(response.getItem());

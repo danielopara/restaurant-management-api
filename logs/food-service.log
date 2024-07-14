@@ -185,3 +185,57 @@ List of constraint violations:[
 2024-07-10 10:19:59.502 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food updated from FoodItem(id=1, foodName=Updated Name, foodPrice=1) to FoodDto(foodName=Updated Name, foodPrice=1)
 2024-07-10 10:21:23.427 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food updated from FoodItem(id=1, foodName=Updated Name, foodPrice=1) to FoodDto(foodName=Updated Name, foodPrice=1)
 2024-07-10 10:21:23.543 [main] ERROR c.u.r.service.impl.FoodServiceImpl - Food not found else food details did not update with id: 1 and FoodDto(foodName=Updated Name, foodPrice=1)
+2024-07-10 14:54:17.514 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 3
+2024-07-13 20:04:41.337 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food Item: null 
+with price: null
+2024-07-13 20:05:04.219 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food Item: null 
+with price: null
+2024-07-13 20:07:43.990 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food Item: null 
+with price: null
+2024-07-13 20:08:58.358 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food Item: Beans 
+with price: 10
+2024-07-13 20:09:50.525 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food Item: null 
+with price: null
+2024-07-13 20:15:29.032 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food Item: null 
+with price: null
+2024-07-13 20:19:35.341 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food Item: Beans 
+with price: 10
+2024-07-13 20:23:38.245 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food Item: Beans 
+with price: 10
+2024-07-13 20:30:15.397 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food Item: Beans 
+with price: 10
+2024-07-13 20:37:26.007 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-07-13 20:37:26.105 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-07-13 20:37:26.126 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-07-13 20:37:26.252 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-07-14 00:13:46.970 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-07-14 00:20:06.778 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-07-14 00:23:03.363 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-07-14 00:23:51.244 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-07-14 00:28:49.430 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-07-14 00:31:24.842 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-07-14 00:32:26.453 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-07-14 00:34:01.950 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: beans 10
+2024-07-14 00:34:29.629 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: beans 10
+2024-07-14 00:36:39.952 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: beans 10
+2024-07-14 00:39:40.602 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 10
+2024-07-14 00:45:22.896 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-07-14 00:45:53.520 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-07-14 00:46:48.511 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-07-14 00:48:01.849 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-07-14 00:49:07.796 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-07-14 00:54:00.191 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-07-14 00:54:00.282 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 10
+2024-07-14 00:55:40.845 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-07-14 22:20:54.214 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-07-14 22:20:54.300 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 10
+2024-07-14 22:20:54.360 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-07-14 22:28:13.017 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-07-14 22:28:13.236 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 10
+2024-07-14 22:28:13.304 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-07-14 22:35:17.848 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-07-14 22:35:17.959 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 10
+2024-07-14 22:35:18.097 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price
+2024-07-14 22:37:52.836 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Food name is blank
+2024-07-14 22:37:52.959 [main] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 10
+2024-07-14 22:37:52.991 [main] WARN  c.u.r.service.impl.FoodServiceImpl - Failed to add food: Invalid food price

@@ -5,21 +5,19 @@ import com.user.restaurantapp.dto.AddFoodDto;
 import com.user.restaurantapp.dto.FoodDto;
 import com.user.restaurantapp.model.FoodItem;
 import com.user.restaurantapp.repository.FoodRepository;
-import com.user.restaurantapp.service.foodInterface.FoodCreationService;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
-
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.user.restaurantapp.service.impl.FoodServiceImpl;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
-
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.lang.reflect.Method;
 import java.math.BigDecimal;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -28,71 +26,78 @@ public class FoodCreationTest {
     @Mock
     private FoodRepository foodRepository;
 
-    @Mock
-    private FoodCreationService foodCreation;
+
+    @InjectMocks
+    private FoodServiceImpl foodCreation;
 
     private FoodItem foodItem;
     private FoodDto foodDto;
 
-    private void mockFoodCreationService(AddFoodDto expectedResponse) {
-        when(foodCreation.addFoodItem(any(FoodDto.class))).thenReturn(expectedResponse);
-    }
-
-    private void assertFoodDto(AddFoodDto expectedResponse, AddFoodDto actualResponse){
-        assertEquals(expectedResponse, actualResponse);
-    }
 
     @BeforeEach
-    public void SetUp(){
+    public void setUp(){
+        System.out.println("Setting up test...");
         foodItem = new FoodItem();
 
         foodItem.setFoodName("Beans");
         foodItem.setFoodPrice(new BigDecimal(10));
 
         foodDto = new FoodDto();
+        foodDto.setFoodName("Beans");
         foodDto.setFoodPrice(new BigDecimal(10));
-        foodItem.setFoodName("Beans");
 
     }
     @AfterEach
-    public void afterEachTest() {
-        System.out.println("Test completed successfully.");
+    public void afterEachTest(TestInfo testInfo) {
+        String displayName = testInfo.getDisplayName();
+        String testClass = testInfo.getTestClass().map(Class::getName).orElse("Unknown Class");
+        String testMethod = testInfo.getTestMethod().map(Method::getName).orElse("Unknown Method");
+
+        if (testInfo.getTags().contains("failed")) {
+            System.out.println("Test failed: " + displayName);
+            System.out.println("Test class: " + testClass);
+            System.out.println("Test method: " + testMethod);
+        } else {
+            System.out.println("Test completed successfully: " + displayName);
+            System.out.println("Test class: " + testClass);
+            System.out.println("Test method: " + testMethod);
+        }
+        System.out.println("-----------------------------------------");
     }
 
     @Test
-    public void testFoodCreation(){
-        AddFoodDto expectedResponse = new AddFoodDto();
-        mockFoodCreationService(expectedResponse);
+    public void testFoodsCreation() {
+        when(foodRepository.save(any(FoodItem.class))).thenReturn(foodItem);
 
         AddFoodDto actualResponse = foodCreation.addFoodItem(foodDto);
 
-        assertFoodDto(expectedResponse, actualResponse);
-        verify(foodCreation, times(1)).addFoodItem(foodDto);
+        assertEquals("Food added", actualResponse.getMessage());
+        verify(foodRepository, times(1)).save(any(FoodItem.class));
     }
 
     @Test
     public void testFoodCreation_FoodNameIsBlank(){
-        AddFoodDto expectedResponse = new AddFoodDto();
         foodDto.setFoodName("");
-        mockFoodCreationService(expectedResponse);
+        lenient().when(foodRepository.save(any(FoodItem.class))).thenReturn(foodItem);
 
         AddFoodDto actualResponse = foodCreation.addFoodItem(foodDto);
 
-        assertFoodDto(expectedResponse, actualResponse);
-        verify(foodCreation, times(1)).addFoodItem(foodDto);
+        assertEquals("Failed to add food", actualResponse.getMessage());
+        verify(foodRepository, never()).save(any(FoodItem.class));
     }
 
     @Test
     public void testFoodCreation_FoodPriceIsBlank(){
-        AddFoodDto expectedResponse = new AddFoodDto();
         foodDto.setFoodPrice(new BigDecimal(0));
 
-        mockFoodCreationService(expectedResponse);
+        lenient().when(foodRepository.save(any(FoodItem.class))).thenReturn(foodItem);
 
         AddFoodDto actualResponse = foodCreation.addFoodItem(foodDto);
 
-        assertFoodDto(expectedResponse, actualResponse);
-        verify(foodCreation, times(1)).addFoodItem(foodDto);
+        assertEquals("Failed to add food", actualResponse.getMessage());
+        verify(foodRepository, never()).save(any(FoodItem.class));
+
+
     }
 
     @Test
@@ -100,11 +105,12 @@ public class FoodCreationTest {
         AddFoodDto expectedResponse = new AddFoodDto();
         foodDto.setFoodPrice(null);
 
-        mockFoodCreationService(expectedResponse);
+        lenient().when(foodRepository.save(any(FoodItem.class))).thenReturn(foodItem);
 
         AddFoodDto actualResponse = foodCreation.addFoodItem(foodDto);
 
-        assertFoodDto(expectedResponse, actualResponse);
-        verify(foodCreation, times(1)).addFoodItem(foodDto);
+        assertEquals("Failed to add food", actualResponse.getMessage());
+        verify(foodRepository, never()).save(any(FoodItem.class));
+
     }
 }

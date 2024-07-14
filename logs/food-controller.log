@@ -163,3 +163,4 @@
 2024-07-10 09:46:00.161 [http-nio-2002-exec-1] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/update-food/1
 2024-07-10 09:46:10.115 [http-nio-2002-exec-3] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food
 2024-07-10 09:46:23.070 [http-nio-2002-exec-5] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/update-food/1
+2024-07-10 14:54:16.299 [http-nio-2002-exec-1] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food
