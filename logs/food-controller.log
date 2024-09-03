@@ -185,3 +185,6 @@
 2024-08-31 23:20:51.098 [http-nio-2002-exec-5] ERROR c.u.r.controller.FoodController - Food not found 400 BAD_REQUEST 
  Endpoint :/api/v1/food/null
 2024-09-02 14:57:24.426 [http-nio-2002-exec-7] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/add-food
+2024-09-03 15:06:35.209 [http-nio-2002-exec-6] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/add-food
+2024-09-03 15:06:40.634 [http-nio-2002-exec-7] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/add-food
+2024-09-03 15:07:29.116 [http-nio-2002-exec-9] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/add-food

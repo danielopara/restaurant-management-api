@@ -38,9 +38,10 @@ public class FoodServiceImpl implements FoodService {
             AddFoodDto responseDto  = new AddFoodDto();
             FoodItem newFoodItem = new FoodItem();
 
-        Optional<FoodItem> foodName = foodRepository.findByFoodName(item.getFoodName());
 
-        if(foodName.isPresent()){
+        FoodValidation foodValidation = new FoodValidation(foodRepository);
+
+        if(foodValidation.doesFoodNameExist(item.getFoodName())){
             SetResponse.setResponseForInvalidInput(responseDto, "Food name already exists");
             return responseDto;
         }

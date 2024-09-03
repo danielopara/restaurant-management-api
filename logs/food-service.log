@@ -411,3 +411,6 @@ with price: 10
 2024-09-02 16:09:54.617 [http-nio-2002-exec-5] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=12, foodName=Egusi, foodPrice=200.00)
 2024-09-02 16:10:00.420 [http-nio-2002-exec-6] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 17
 2024-09-02 16:10:01.475 [http-nio-2002-exec-9] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=7, foodName=Yam, foodPrice=100.00)
+2024-09-03 15:06:35.208 [http-nio-2002-exec-6] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: jollof rice 100
+2024-09-03 15:06:40.633 [http-nio-2002-exec-7] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: jollof rice 100
+2024-09-03 15:07:29.116 [http-nio-2002-exec-9] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Jollof rice 100
