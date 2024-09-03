@@ -9,4 +9,5 @@ import java.util.List;
 public interface FoodRetrievalService{
     List<FoodDto> getFoodItems(int pageNumber, int pageSize, String sortBy, SortOrder sortOrder);
     FoodItemDto getFoodByName(String foodName);
+    long getFoodItemsCount();
 }

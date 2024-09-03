@@ -164,3 +164,24 @@
 2024-07-10 09:46:10.115 [http-nio-2002-exec-3] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food
 2024-07-10 09:46:23.070 [http-nio-2002-exec-5] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/update-food/1
 2024-07-10 14:54:16.299 [http-nio-2002-exec-1] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food
+2024-08-23 21:14:53.183 [http-nio-2002-exec-1] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food
+2024-08-23 21:15:55.651 [http-nio-2002-exec-7] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food
+2024-08-31 15:16:33.464 [http-nio-2002-exec-2] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/add-food
+2024-08-31 15:44:30.210 [http-nio-2002-exec-7] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/add-food
+2024-08-31 15:44:37.430 [http-nio-2002-exec-8] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/add-food
+2024-08-31 15:44:54.596 [http-nio-2002-exec-1] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/add-food
+2024-08-31 15:45:06.901 [http-nio-2002-exec-4] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/add-food
+2024-08-31 15:45:13.120 [http-nio-2002-exec-5] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/add-food
+2024-08-31 15:45:16.869 [http-nio-2002-exec-3] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/add-food
+2024-08-31 15:45:40.925 [http-nio-2002-exec-7] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/add-food
+2024-08-31 22:32:41.600 [http-nio-2002-exec-3] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/rice
+2024-08-31 23:20:46.616 [http-nio-2002-exec-3] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/null
+2024-08-31 23:20:46.700 [http-nio-2002-exec-3] ERROR c.u.r.controller.FoodController - Food not found 400 BAD_REQUEST 
+ Endpoint :/api/v1/food/null
+2024-08-31 23:20:48.681 [http-nio-2002-exec-4] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/null
+2024-08-31 23:20:48.692 [http-nio-2002-exec-4] ERROR c.u.r.controller.FoodController - Food not found 400 BAD_REQUEST 
+ Endpoint :/api/v1/food/null
+2024-08-31 23:20:51.093 [http-nio-2002-exec-5] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/null
+2024-08-31 23:20:51.098 [http-nio-2002-exec-5] ERROR c.u.r.controller.FoodController - Food not found 400 BAD_REQUEST 
+ Endpoint :/api/v1/food/null
+2024-09-02 14:57:24.426 [http-nio-2002-exec-7] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/add-food

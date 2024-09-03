@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Food List</title>
+    <link rel="stylesheet" th:href="@{/css/addFoodStyles.css}">
+    <link rel="stylesheet"  href="/static/css/addFoodStyles.css">
+
+</head>
+<body>
+
+<nav class="nav-bar">
+    <a href="/">
+        <h1>Food List</h1>
+    </a>
+    <ul>
+        <li><a href="/add-food">Add Food</a></li>
+        <li><a href="#about">View Orders</a></li>
+
+    </ul>
+</nav>
+
+<div class="form-container">
+    <!--<h1>Add Food Item</h1>-->
+    <form action="#" th:action="@{/addfood}" th:object="${foodDto}" method="post">
+        <div>
+            <label for="foodName">Food Name:</label>
+            <input type="text" id="foodName" th:field="*{foodName}" placeholder="Enter food name">
+        </div>
+        <div>
+            <label for="foodPrice">Food Price:</label>
+            <input type="number" id="foodPrice" th:field="*{foodPrice}" placeholder="Enter food price">
+        </div>
+        <div>
+            <button type="submit">Add Food</button>
+        </div>
+    </form>
+
+    <div th:if="${successMessage}">
+        <p th:text="${successMessage}" style="color:green;"></p>
+    </div>
+    <div th:if="${errorMessage}">
+        <p th:text="${errorMessage}" style="color:red;"></p>
+    </div>
+</div>
+
+
+
+<script>
+
+</script>
+</body>
+</html>

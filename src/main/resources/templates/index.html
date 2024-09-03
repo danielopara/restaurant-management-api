@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Food List</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <link rel="stylesheet"  href="/static/css/styles.css">
+
+</head>
+<body>
+
+<nav class="nav-bar">
+    <a href="/">
+        <h1>Food List</h1>
+    </a>
+    <ul>
+        <li><a href="/add-food">Add Food</a></li>
+        <li><a href="#about">View Orders</a></li>
+
+    </ul>
+</nav>
+
+<div class="container">
+    <div class="food-item" th:each="food : ${foodItems}" th:attr="data-name=${food.foodName}">
+        <h2 th:text="${food.foodName}">Food Name</h2>
+        <p th:text="'Price: ₦' + ${food.foodPrice}">Food Price</p>
+    </div>
+</div>
+
+
+<div class="modal" id="foodModal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="foodName">Food Name</h2>
+        <p id="foodPrice">Food Price</p>
+        <button class="edit-button" onclick="editFood()">Edit</button>
+    </div>
+</div>
+
+<!-- Pagination Controls -->
+<div class="pagination">
+    <!-- Previous button -->
+    <a th:if="${currentPage > 0}"
+       th:href="@{/(pageNumber=${currentPage - 1}, pageSize=${pageSize}, sortBy=${sortBy}, sortOrder=${sortOrder})}">Previous</a>
+
+    <!-- Current page display -->
+    <span>Page <span th:text="${currentPage + 1}">1</span> of <span th:text="${totalPages}">1</span></span>
+
+    <!-- Next button -->
+    <a th:if="${currentPage + 1 < totalPages}"
+       th:href="@{/(pageNumber=${currentPage + 1}, pageSize=${pageSize}, sortBy=${sortBy}, sortOrder=${sortOrder})}">Next</a>
+</div>
+
+
+<script>
+    document.querySelectorAll('.food-item').forEach(item => {
+    item.addEventListener('click', function() {
+        const foodName = this.getAttribute('data-name');
+        fetch(`/${foodName}`) // Fetch food details from the server
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Food item not found');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data) {
+                    document.getElementById('foodName').textContent = data.foodName;
+                    document.getElementById('foodPrice').textContent = 'Price: ₦' + data.foodPrice;
+                    document.getElementById('foodModal').style.display = 'flex';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching food item:', error);
+                alert('Food item not found.');
+            });
+    });
+});
+
+    function closeModal() {
+        document.getElementById('foodModal').style.display = 'none';
+    }
+
+</script>
+</body>
+</html>

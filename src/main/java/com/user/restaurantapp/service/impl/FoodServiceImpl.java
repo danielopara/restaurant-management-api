@@ -38,6 +38,13 @@ public class FoodServiceImpl implements FoodService {
             AddFoodDto responseDto  = new AddFoodDto();
             FoodItem newFoodItem = new FoodItem();
 
+        Optional<FoodItem> foodName = foodRepository.findByFoodName(item.getFoodName());
+
+        if(foodName.isPresent()){
+            SetResponse.setResponseForInvalidInput(responseDto, "Food name already exists");
+            return responseDto;
+        }
+
         if (FoodValidation.isFoodNameBlank(item.getFoodName())) {
             SetResponse.setResponseForInvalidInput(responseDto, "Food name cannot be blank");
             logger.warn("Failed to add food: Food name is blank");
@@ -151,6 +158,11 @@ public class FoodServiceImpl implements FoodService {
             logger.info("Got {}" , responseDto);
             return responseDto;
 
+    }
+
+    @Override
+    public long getFoodItemsCount() {
+        return foodRepository.count();
     }
 
     @Override
