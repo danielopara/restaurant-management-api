@@ -79,4 +79,16 @@ public class FoodControllerPage {
 
         return "add-food";
     }
+//    @PutMapping("/update-foodItem/{id}")
+//    public String updateFood(@PathVariable Long id, @ModelAttribute FoodDto foodDto, Model model){
+//        AddFoodDto updateFood = foodService.updateFoodItem(id, foodDto);
+//
+//        if(updateFood.getMessage().equals("Food details has updated")){
+//            model.addAttribute("successMessage", "Food item updated successfully");
+//        } else{
+//            model.addAttribute("errorMessage", updateFood.getMessage());
+//        }
+//
+//        return "redirect:/";
+//    }
 }

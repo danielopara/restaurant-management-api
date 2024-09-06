@@ -188,3 +188,9 @@
 2024-09-03 15:06:35.209 [http-nio-2002-exec-6] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/add-food
 2024-09-03 15:06:40.634 [http-nio-2002-exec-7] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/add-food
 2024-09-03 15:07:29.116 [http-nio-2002-exec-9] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/add-food
+2024-09-03 15:21:46.958 [http-nio-2002-exec-1] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/add-food
+2024-09-06 06:08:34.740 [http-nio-2002-exec-4] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/update-food/9
+2024-09-06 06:08:45.111 [http-nio-2002-exec-8] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/update-food/9
+2024-09-06 06:08:55.114 [http-nio-2002-exec-2] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/update-food/9
+2024-09-06 13:10:36.547 [http-nio-2002-exec-10] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/update-food/6
+2024-09-06 13:10:55.978 [http-nio-2002-exec-6] INFO  c.u.r.controller.FoodController - Received a request from: /api/v1/food/update-food/3
