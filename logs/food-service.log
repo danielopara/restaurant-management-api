@@ -473,3 +473,90 @@ with price: 10
 2024-09-06 13:10:55.989 [http-nio-2002-exec-6] INFO  c.u.r.service.impl.FoodServiceImpl - Food updated from FoodItem(id=3, foodName=Agidi, foodPrice=100) to FoodDto(foodName=Agidi, foodPrice=100)
 2024-09-06 13:10:57.246 [http-nio-2002-exec-7] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
 2024-09-06 13:12:16.431 [http-nio-2002-exec-10] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=23, foodName=Ewedu, foodPrice=100.00)
+2024-09-06 13:19:02.985 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 13:19:06.787 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=5, foodName=Beans, foodPrice=100.00)
+2024-09-06 13:19:08.098 [http-nio-2002-exec-4] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=9, foodName=Garri, foodPrice=100.00)
+2024-09-06 13:19:09.284 [http-nio-2002-exec-6] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=10, foodName=Fufu, foodPrice=100.00)
+2024-09-06 13:33:21.819 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 13:33:24.776 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=5, foodName=Beans, foodPrice=100.00)
+2024-09-06 13:35:02.758 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 13:35:16.511 [http-nio-2002-exec-4] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=3, foodName=Agidi, foodPrice=100.00)
+2024-09-06 15:36:15.759 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=10, foodName=Fufu, foodPrice=100.00)
+2024-09-06 15:37:57.471 [http-nio-2002-exec-2] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 15:38:02.168 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=10, foodName=Fufu, foodPrice=100.00)
+2024-09-06 15:38:45.506 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 15:38:47.916 [http-nio-2002-exec-4] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=9, foodName=Garri, foodPrice=100.00)
+2024-09-06 15:39:34.710 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 15:39:38.461 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=10, foodName=Fufu, foodPrice=100.00)
+2024-09-06 15:41:23.861 [http-nio-2002-exec-5] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=10, foodName=Fufu, foodPrice=100.00)
+2024-09-06 15:41:27.892 [http-nio-2002-exec-6] INFO  c.u.r.service.impl.FoodServiceImpl - Food updated from FoodItem(id=10, foodName=Fufo, foodPrice=100) to FoodDto(foodName=Fufo, foodPrice=100)
+2024-09-06 15:41:30.235 [http-nio-2002-exec-7] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 15:41:31.125 [http-nio-2002-exec-9] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=10, foodName=Fufo, foodPrice=100.00)
+2024-09-06 15:41:36.892 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Food updated from FoodItem(id=10, foodName=Fufu, foodPrice=100) to FoodDto(foodName=Fufu, foodPrice=100)
+2024-09-06 15:41:40.480 [http-nio-2002-exec-2] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 15:41:46.991 [http-nio-2002-exec-5] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 15:41:48.405 [http-nio-2002-exec-7] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=12, foodName=Egusi, foodPrice=200.00)
+2024-09-06 15:41:49.643 [http-nio-2002-exec-8] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=10, foodName=Fufu, foodPrice=100.00)
+2024-09-06 15:43:31.368 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 15:43:33.578 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=10, foodName=Fufu, foodPrice=100.00)
+2024-09-06 15:43:50.295 [http-nio-2002-exec-5] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 15:43:50.841 [http-nio-2002-exec-8] WARN  c.u.r.service.impl.FoodServiceImpl - No food item found with name: favicon.ico
+2024-09-06 15:43:51.579 [http-nio-2002-exec-9] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=5, foodName=Beans, foodPrice=100.00)
+2024-09-06 15:44:30.516 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 15:44:32.380 [http-nio-2002-exec-4] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=10, foodName=Fufu, foodPrice=100.00)
+2024-09-06 15:44:35.041 [http-nio-2002-exec-7] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 15:44:36.206 [http-nio-2002-exec-9] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=6, foodName=Meat, foodPrice=200.00)
+2024-09-06 15:44:40.766 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 15:44:42.184 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=5, foodName=Beans, foodPrice=100.00)
+2024-09-06 15:45:07.899 [http-nio-2002-exec-5] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 15:45:09.409 [http-nio-2002-exec-8] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=5, foodName=Beans, foodPrice=100.00)
+2024-09-06 16:38:13.509 [http-nio-2002-exec-10] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=10, foodName=Fufu, foodPrice=100.00)
+2024-09-06 16:42:33.306 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 16:42:36.105 [http-nio-2002-exec-5] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=10, foodName=Fufu, foodPrice=100.00)
+2024-09-06 16:50:54.300 [http-nio-2002-exec-8] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=23, foodName=Ewedu, foodPrice=100.00)
+2024-09-06 16:50:55.613 [http-nio-2002-exec-10] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 16:50:57.850 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=23, foodName=Ewedu, foodPrice=100.00)
+2024-09-06 16:51:03.071 [http-nio-2002-exec-4] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 16:51:04.438 [http-nio-2002-exec-6] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=10, foodName=Fufu, foodPrice=100.00)
+2024-09-06 16:51:06.204 [http-nio-2002-exec-10] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=9, foodName=Garri, foodPrice=100.00)
+2024-09-06 16:51:07.459 [http-nio-2002-exec-2] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=23, foodName=Ewedu, foodPrice=100.00)
+2024-09-06 16:51:08.502 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=17, foodName=Jollof Rice, foodPrice=100.00)
+2024-09-06 16:51:09.741 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=6, foodName=Meat, foodPrice=200.00)
+2024-09-06 16:51:11.449 [http-nio-2002-exec-4] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 16:51:13.201 [http-nio-2002-exec-7] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 16:51:14.728 [http-nio-2002-exec-8] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 16:51:16.128 [http-nio-2002-exec-2] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 16:51:25.387 [http-nio-2002-exec-4] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=10, foodName=Fufu, foodPrice=100.00)
+2024-09-06 16:51:26.881 [http-nio-2002-exec-5] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=6, foodName=Meat, foodPrice=200.00)
+2024-09-06 16:51:27.743 [http-nio-2002-exec-7] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=1, foodName=MoiMoi, foodPrice=10.00)
+2024-09-06 16:51:28.779 [http-nio-2002-exec-6] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=12, foodName=Egusi, foodPrice=200.00)
+2024-09-06 16:54:48.207 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 16:55:37.683 [http-nio-2002-exec-8] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 16:56:17.557 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 16:56:20.703 [http-nio-2002-exec-5] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=1, foodName=MoiMoi, foodPrice=10.00)
+2024-09-06 16:57:30.553 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 19
+2024-09-06 16:57:33.827 [http-nio-2002-exec-5] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=5, foodName=Beans, foodPrice=100.00)
+2024-09-06 16:57:36.506 [http-nio-2002-exec-6] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=3, foodName=Agidi, foodPrice=100.00)
+2024-09-06 16:57:39.753 [http-nio-2002-exec-7] INFO  c.u.r.service.impl.FoodServiceImpl - Food Item: Agidi 
+with price: 100.00
+2024-09-06 16:59:42.508 [http-nio-2002-exec-9] ERROR c.u.r.service.impl.FoodServiceImpl - Failed to delete Food item with id: 3 
+it does not exist
+2024-09-06 18:15:41.153 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 18
+2024-09-06 18:15:46.176 [http-nio-2002-exec-5] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=5, foodName=Beans, foodPrice=100.00)
+2024-09-06 18:15:52.725 [http-nio-2002-exec-7] INFO  c.u.r.service.impl.FoodServiceImpl - Food Item: Beans 
+with price: 100.00
+2024-09-06 18:16:04.410 [http-nio-2002-exec-9] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 17
+2024-09-07 01:23:54.905 [http-nio-2002-exec-2] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 17
+2024-09-07 01:23:56.132 [http-nio-2002-exec-3] WARN  c.u.r.service.impl.FoodServiceImpl - No food item found with name: favicon.ico
+2024-09-07 01:23:57.803 [http-nio-2002-exec-7] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=11, foodName=Okro, foodPrice=100.00)
+2024-09-07 01:24:08.643 [http-nio-2002-exec-2] INFO  c.u.r.service.impl.FoodServiceImpl - Food added: Beans 200
+2024-09-07 01:24:10.644 [http-nio-2002-exec-4] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 18
+2024-09-07 01:24:13.156 [http-nio-2002-exec-5] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=10, foodName=Fufu, foodPrice=100.00)
+2024-09-07 01:24:15.455 [http-nio-2002-exec-6] INFO  c.u.r.service.impl.FoodServiceImpl - Food Item: Fufu 
+with price: 100.00
+2024-09-07 01:24:16.841 [http-nio-2002-exec-7] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 17
+2024-09-07 01:27:54.106 [http-nio-2002-exec-1] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 17
+2024-09-07 01:27:57.336 [http-nio-2002-exec-3] INFO  c.u.r.service.impl.FoodServiceImpl - Got FoodItemDto(id=23, foodName=Ewedu, foodPrice=100.00)
+2024-09-07 01:28:01.173 [http-nio-2002-exec-4] INFO  c.u.r.service.impl.FoodServiceImpl - Food Item: Ewedu 
+with price: 100.00
+2024-09-07 01:28:06.480 [http-nio-2002-exec-6] INFO  c.u.r.service.impl.FoodServiceImpl - Retrieved all foods 16

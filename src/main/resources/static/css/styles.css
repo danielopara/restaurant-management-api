@@ -114,7 +114,7 @@ body {
             cursor: pointer;
             float: right;
         }
-.modal .edit-button {
+.modal .edit-button, .delete-button{
     margin-top: 20px;
     padding: 10px 20px;
     background-color: #ff69b4; /* Primary color for button */
@@ -137,4 +137,13 @@ body {
 .modal .edit-button:active {
     transform: translateY(0); /* Reset lift effect on click */
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Reduced shadow on click */
+}
+
+
+.delete-button {
+    background-color: #f44336; /* Red color for the Delete button */
+    margin-left: 10px; /* Space between buttons */
+}
+.delete-button:hover {
+    background-color: #d32f2f; /* Darker red on hover */
 }

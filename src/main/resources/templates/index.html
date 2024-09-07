@@ -30,6 +30,7 @@
         <h2 id="foodName">Food Name</h2>
         <p id="foodPrice">Food Price</p>
         <button class="edit-button" onclick="openEditModal()">Edit</button>
+        <span class="delete-button" onclick="deleteFoodItem()">Delete</span>
     </div>
 </div>
 
@@ -107,6 +108,35 @@
     function closeModal(modalId) {
         document.getElementById(modalId).style.display = 'none';
     }
+// Function to delete a food item
+function deleteFoodItem() {
+    const foodId = document.getElementById('editFoodId').value; // Get the food ID from the hidden input
+    const foodName = document.getElementById('editFoodName').value;
+
+    if (confirm('Are you sure you want to delete this food item?')) {
+        fetch(`/api/v1/food/delete-food/${foodId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error deleting food item');
+            }
+            return response.json();
+        })
+        .then(data => {
+            alert(foodName + ' has deleted successfully');
+            location.reload(); // Reload the page to reflect the changes
+        })
+        .catch(error => {
+            console.error('Error deleting food item:', error);
+            alert('Error deleting food item.');
+        });
+    }
+}
+
 
     // Function to handle the edit form submission
     document.getElementById('editFoodForm').addEventListener('submit', function(event) {

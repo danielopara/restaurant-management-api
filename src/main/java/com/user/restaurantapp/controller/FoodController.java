@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Nonnegative;
 import javax.swing.*;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -127,7 +128,8 @@ public class FoodController {
         logRequest(request);
         String foodItem = foodService.deleteFoodItemById(id);
         if(foodItem != null){
-            return new ResponseEntity<>(foodItem, HttpStatus.OK);
+            Map<String, String> response = Map.of("message", "Food item deleted successfully");
+            return new ResponseEntity<>(response, HttpStatus.OK);
         } else {
             logError(request);
             return new ResponseEntity<>(new ErrorResponse("Food not found"), HttpStatus.BAD_REQUEST);
