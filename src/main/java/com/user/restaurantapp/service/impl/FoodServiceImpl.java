@@ -21,8 +21,6 @@ import javax.swing.*;
 import java.math.BigDecimal;
 import java.util.*;
 
-
-
 @Service
 @Slf4j
 public class FoodServiceImpl implements FoodService {
@@ -37,7 +35,6 @@ public class FoodServiceImpl implements FoodService {
     public AddFoodDto addFoodItem(FoodDto item) {
             AddFoodDto responseDto  = new AddFoodDto();
             FoodItem newFoodItem = new FoodItem();
-
 
         FoodValidation foodValidation = new FoodValidation(foodRepository);
 

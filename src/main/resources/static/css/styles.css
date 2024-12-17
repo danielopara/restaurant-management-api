@@ -147,3 +147,173 @@ body {
 .delete-button:hover {
     background-color: #d32f2f; /* Darker red on hover */
 }
+
+
+.add-order-button {
+    position: fixed; /* Fixed position at the bottom right */
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    width: 100px; /* Size of the button */
+    height: 100px; /* Size of the button */
+    background-color: #007bff; /* Button color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 50%; /* Make it a circle */
+    font-size: 50px; /* Font size for the plus sign */
+    display: flex; /* Align content */
+    justify-content: center; /* Center align horizontally */
+    align-items: center; /* Center align vertically */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for elevation */
+    cursor: pointer; /* Cursor changes to pointer on hover */
+    z-index: 1000; /* Ensure it is on top */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Hover effect for the button */
+.add-order-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+
+
+
+#invoice-POS {
+  box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
+  padding: 2mm;
+  margin: 0 auto;
+  width: 44mm;
+  background: #FFF;
+}
+
+::selection {
+  background: #f31544;
+  color: #FFF;
+}
+
+::moz-selection {
+  background: #f31544;
+  color: #FFF;
+}
+
+h1 {
+  font-size: 1.5em;
+  color: #222;
+}
+
+h2 {
+  font-size: .9em;
+}
+
+h3 {
+  font-size: 1.2em;
+  font-weight: 300;
+  line-height: 2em;
+}
+
+p {
+  font-size: .7em;
+  color: #666;
+  line-height: 1.2em;
+}
+
+#top, #mid, #bot {
+  border-bottom: 1px solid #EEE;
+}
+
+#top {
+  min-height: 100px;
+}
+
+#mid {
+  min-height: 80px;
+}
+
+#bot {
+  min-height: 50px;
+}
+
+#top .logo {
+  height: 60px;
+  width: 60px;
+  background: url(http://michaeltruong.ca/images/logo1.png) no-repeat;
+  background-size: 60px 60px;
+}
+
+.clientlogo {
+  float: left;
+  height: 60px;
+  width: 60px;
+  background: url(http://michaeltruong.ca/images/client.jpg) no-repeat;
+  background-size: 60px 60px;
+  border-radius: 50px;
+}
+
+.info {
+  display: block;
+  margin-left: 0;
+}
+
+.title {
+  float: right;
+}
+
+.title p {
+  text-align: right;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabletitle {
+  font-size: .5em;
+  background: #EEE;
+}
+
+.service {
+  border-bottom: 1px solid #EEE;
+}
+
+.item {
+  width: 24mm;
+}
+
+.itemtext {
+  font-size: .5em;
+}
+
+#legalcopy {
+  margin-top: 5mm;
+}
+
+.posModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+#invoice-POS {
+    margin: auto;
+    width: 80%;
+    max-width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.food-sidebar {
+    width: 30%; /* Adjust width as needed */
+    padding: 10px;
+    background: #f9f9f9;
+    border-right: 1px solid #ddd;
+}
